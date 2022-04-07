@@ -1,4 +1,4 @@
-# FooCoding for Tõnis Rand
+# FooCoding Homework
 
-### Homework HTML & CSS
+### HTML & CSS
 - Week 1: https://fn-ix.github.io/foocoding/html-css/week1/
