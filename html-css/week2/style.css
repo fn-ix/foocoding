@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  font-family: 'Titillium Web', sans-serif;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuX2tSMkN4IiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxsaW5lIHgxPSIwIiB5PSIwIiB4Mj0iMCIgeTI9IjIwIiBzdHJva2U9IiNBOEE4QTgiIHN0cm9rZS13aWR0aD0iMjAiLz48L3BhdHRlcm4+PC9kZWZzPiA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm5fa1IyQ3gpIiBvcGFjaXR5PSIwLjAzIi8+PC9zdmc+');
+}
+
+section {
+  margin: 20px 0;
+}
+
+ul {
+  border: 2px solid;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 75%;
+  margin-left: 12.5%;
+}
+
+.grid-item {
+  border: 2px solid;
+  padding: 10px;
+  transition: background-color 300ms ease;
+}
+
+.grid-item:hover {
+  background-color: aliceblue;
+}
+
+/* grid */
+#grid-floats {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+#grid-floats .grid-item{
+  grid-column: auto / span 3;
+}
+
+#grid-floats li:first-child {
+  grid-column: 1 / 7;
+}
+
+/* flex */
+#grid-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#grid-flex .grid-item {
+  flex: 25%;
+}
+
+#grid-flex li:first-child {
+  flex: 50%;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  #grid-flex .grid-item {
+    flex: 33.33333333%;
+  }
+  #grid-flex li:nth-child(1) {
+    flex: 50%;
+  }
+  #grid-flex li:nth-child(2) {
+    flex: 50%;
+  }
+
+  #grid-floats .grid-item{
+    grid-column: auto / span 4;
+  }
+  #grid-floats li:nth-child(1) {
+    grid-column: 1 / 7;
+  }
+  #grid-floats li:nth-child(2) {
+    grid-column: 7 / 13;
+  }
+}
+
+@media (max-width: 480px) {
+  #grid-flex .grid-item {
+    flex: 50%;
+  }
+  #grid-flex li:first-child {
+    flex: 100%;
+  }
+
+  #grid-floats .grid-item{
+    grid-column: auto / span 6;
+  }
+  #grid-floats li:first-child {
+    grid-column: 1 / 13;
+  }
+  #grid-floats li:nth-child(2) {
+    grid-column: auto / span 6;
+  }
+}
