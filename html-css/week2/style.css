@@ -110,3 +110,43 @@ img {
     grid-column: auto / span 6;
   }
 }
+
+/* keyframe animation */
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header::after {
+  content: "";
+  width: 3rem;
+  height: 3rem;
+  border: 0.3rem solid transparent;
+  animation-name: grid;
+  animation-duration: 1.6s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running; 
+}
+
+@keyframes grid {
+  25% {
+    border-color: transparent;
+    border-right-color: black;
+  }
+  50% {
+    border-color: transparent;
+    border-bottom-color: black;
+  }
+  75% {
+    border-color: transparent;
+    border-left-color: black;
+  }
+  0%, 100% {
+    border-color: transparent;
+    border-top-color: black;
+  }
+}
