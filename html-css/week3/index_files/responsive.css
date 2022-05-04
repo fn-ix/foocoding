@@ -357,7 +357,7 @@ aside {
 }
 
 /* FOOTER NAV */
-footer {
+#mainwrapper>footer {
   background-color: #01689b;
   display: flex;
   flex-wrap: wrap;
