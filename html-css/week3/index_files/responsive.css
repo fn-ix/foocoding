@@ -298,6 +298,64 @@ aside {
   gap: 3%;
 }
 
+.banner svg {
+  width: 100%
+}
+
+.banner .st0 {
+  fill: #fff;
+  stroke: #cbd2e3;
+  stroke-width: 4;
+  stroke-miterlimit: 10
+}
+
+.banner .st1 {
+  fill: #1b5e84
+}
+
+.banner .st2 {
+  font-weight: bold
+}
+
+.banner .st3 {
+  font-size: 22px
+}
+
+.banner .st4 {
+  font-size: 31px;
+  text-decoration: none
+}
+
+.banner .st5 {
+  font-weight: normal
+}
+
+.banner .st6 {
+  font-size: 21px
+}
+
+.banner .eng .st0 {
+  stroke: #cbd2e3;
+  stroke-width: 4;
+  stroke-miterlimit: 10
+}
+
+.banner .eng .st2 {
+  font-weight: bold
+}
+
+.banner .eng .st3 {
+  font-size: 20px
+}
+
+.banner .eng .st5 {
+  font-weight: normal
+}
+
+.banner .eng .st6 {
+  font-size: 19px
+}
+
 /* FOOTER NAV */
 footer {
   background-color: #01689b;
