@@ -45,6 +45,7 @@ p {
 /* LOGO */
 .logo {
   margin-left: 48%;
+  overflow: hidden;
 }
 
 /* HEADER NAVBAR */
