@@ -250,6 +250,7 @@ input {
 .img-container>picture {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 picture img {
@@ -288,6 +289,13 @@ picture img {
   left: 10px;
   color: white;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, .5), -1px 0px 1px rgba(0, 0, 0, .5), 1px 0px 1px rgba(0, 0, 0, .5), 0px -1px 1px rgba(0, 0, 0, .5), 0px 1px 1px rgba(0, 0, 0, .5), 2px 2px 6px rgba(0, 0, 0, .5);
+}
+
+@media (max-width: 830px) {
+  picture img {
+    min-height: 0;
+    min-width: 100%;
+  }
 }
 
 /* EDITORIAL NAV */
