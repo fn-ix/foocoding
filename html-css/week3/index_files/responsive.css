@@ -374,6 +374,10 @@ picture img {
   position: relative;
 }
 
+.brickRow.spotLight div:nth-of-type(2) h3::before {
+  content: "🡵 ";
+}
+
 .img-container footer {
   position: absolute;
   left: 10px;
