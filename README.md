@@ -7,5 +7,6 @@
 
 ### JavaScript 1
 - Week 1/2: [Exercises](https://github.com/fn-ix/foocoding/tree/main/javascript1/week1)
+- Week 2/3: [Exercises](https://github.com/fn-ix/foocoding/tree/main/javascript1/week2)
 
 ⏻
