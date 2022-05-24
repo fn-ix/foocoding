@@ -1,0 +1,186 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  gap: 20px;
+  background-color: #f8f8f8;
+  opacity: 1;
+  background-image: linear-gradient(#ececec 1px, transparent 1px), linear-gradient(to right, #ececec 1px, #f8f8f8 1px);
+  background-size: 20px 20px;
+  overflow-x: hidden;
+}
+
+header {
+  position: relative;
+  left: -20px;
+  top: -20px;
+  padding: 10px 80px 10px 30px;
+  flex-basis: 100vw;
+  flex-shrink: 0;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid teal;
+  text-shadow: 0 0 2px #ececec;
+}
+
+button {
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  color: grey;
+  border: 4px solid transparent;
+  animation-name: grid;
+  animation-duration: 1.6s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  background-clip: padding-box;
+}
+
+@keyframes grid {
+  25% {
+    border-color: #ececec;
+    border-right-color: teal;
+  }
+
+  50% {
+    border-color: #ececec;
+    border-bottom-color: teal;
+  }
+
+  75% {
+    border-color: #ececec;
+    border-left-color: teal;
+  }
+
+  0%,
+  100% {
+    border-color: #ececec;
+    border-top-color: teal;
+  }
+}
+
+h3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  color: rgb(230, 230, 230);
+  text-shadow: 0 0 2px black;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-basis: calc((100% - 20px * 3) / 4);
+  height: 300px;
+  border: 2px solid teal;
+  clip-path:
+    polygon(0 0,
+      calc(100% - 20px) 0,
+      100% 20px,
+      100% 100%,
+      0 100%);
+}
+
+@media (max-width: 550px) {
+  .card {
+    flex-basis: calc((100% - 20px * 1) / 2);
+  }
+}
+
+@media (min-width: 551px) and (max-width: 900px) {
+  .card {
+    flex-basis: calc((100% - 20px * 2) / 3);
+  }
+}
+
+.card::before {
+  position: absolute;
+  content: "";
+  top: -16px;
+  right: -16px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid teal;
+  transform: rotate(45deg);
+}
+
+.caption {
+  background-color: rgb(230, 230, 230, 0.8);
+  padding: 5px;
+  border-top: 1px solid rgb(204, 204, 204);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+}
+
+.caption::after {
+  content: '⇪';
+}
+
+img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-position: top;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: -99;
+}
+
+.hidden {
+  position: absolute;
+  background-color: rgb(230, 230, 230, 0.8);
+  padding: 5px;
+  bottom: -200px;
+}
+
+.hidden p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden p:nth-child(1)::before {
+  content: 'Also known as:';
+}
+
+.hidden p:nth-child(2)::before {
+  content: 'Born:';
+}
+
+.hidden p:nth-child(3)::before {
+  content: 'Currently:';
+}
+
+.hidden p:nth-child(4)::before {
+  content: 'Portrayed by:';
+}
+
+.card:hover .hidden {
+  position: static;
+}
+
+.card:hover .caption::after {
+  content: '';
+}
