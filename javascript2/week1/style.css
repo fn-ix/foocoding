@@ -76,6 +76,16 @@ button {
   }
 }
 
+@media (max-width: 550px) {
+  button {
+    display: none;
+  }
+
+  header {
+    padding: 5px 30px 10px 30px;
+  }
+}
+
 h3 {
   position: absolute;
   top: 0;
