@@ -39,7 +39,7 @@ function card(apidata) {
 
   charName.innerText = apidata.name;
   charImg.setAttribute('src', apidata.img);
-  charOccupation.innerText = apidata.occupation[0];
+  apidata.occupation[0] === 'unknown' ? charOccupation.innerText = 'Occupation unknown' : charOccupation.innerText = apidata.occupation[0];
   charOccupation.setAttribute('class', 'caption');
 
   hidden.setAttribute('class', 'hidden');

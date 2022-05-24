@@ -152,8 +152,8 @@ img {
 .hidden {
   position: absolute;
   background-color: rgb(230, 230, 230, 0.8);
-  padding: 5px;
-  bottom: -200px;
+  padding: 5px 10px;
+  z-index: -999;
 }
 
 .hidden p {
@@ -179,6 +179,7 @@ img {
 
 .card:hover .hidden {
   position: static;
+  z-index: 1;
 }
 
 .card:hover .caption::after {
