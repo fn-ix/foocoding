@@ -40,40 +40,7 @@ button {
   height: 50px;
   font-size: 1.8rem;
   line-height: 1.8rem;
-  color: grey;
-  border: 4px solid transparent;
-  animation-name: grid;
-  animation-duration: 1.6s;
-  animation-timing-function: ease-out;
-  animation-delay: 0s;
-  animation-direction: normal;
-  animation-iteration-count: infinite;
-  animation-fill-mode: none;
-  animation-play-state: running;
-  background-clip: padding-box;
-}
-
-@keyframes grid {
-  25% {
-    border-color: #ececec;
-    border-right-color: teal;
-  }
-
-  50% {
-    border-color: #ececec;
-    border-bottom-color: teal;
-  }
-
-  75% {
-    border-color: #ececec;
-    border-left-color: teal;
-  }
-
-  0%,
-  100% {
-    border-color: #ececec;
-    border-top-color: teal;
-  }
+  color: teal;
 }
 
 @media (max-width: 550px) {
