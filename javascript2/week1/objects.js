@@ -107,7 +107,11 @@ function loadCards(apidata, select) {
   }
 }
 
-function searchCards(apidata) {
+function searchCards(apidata, select) {
+  if (searchBox.value === '') {
+    loadCards(apidata, select);
+    return;
+  }
   delCards();
   let result = [];
 
@@ -130,7 +134,7 @@ fetch('https://www.breakingbadapi.com/api/characters')
     refreshButton.addEventListener('click', reCard);
 
     const searchResult = function () {
-      searchCards(data);
+      searchCards(data, idSelect(data));
     };
     searchBox.addEventListener('input', searchResult);
   }

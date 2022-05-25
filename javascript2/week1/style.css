@@ -37,14 +37,14 @@ header {
 }
 
 .heading {
-  flex: 3 1 50%;
+  flex: 3 1 0%;
 }
 
 input {
   height: 40px;
-  flex: 1 1 10%;
-  width: 200px;
+  flex: 0 1 20%;
   font-size: 1.2rem;
+  overflow-x: hidden;
 }
 
 button {
@@ -60,12 +60,12 @@ button {
     flex-wrap: wrap;
   }
 
-  .heading {
-    flex: 0 0 100%;
+  input {
+    flex-grow: 1;
   }
 
-  input {
-    flex: 1 1 0;
+  .heading {
+    flex: 0 0 100%;
   }
 }
 
@@ -94,13 +94,31 @@ h3 {
       0 100%);
 }
 
-@media (max-width: 550px) {
+@media (max-width: 400px) {
+  body {
+    background-size: 5vw 5vw;
+  }
+
+  .card {
+    flex-basis: 100%;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 550px) {
+  body {
+    background-size: 4vw 4vw;
+  }
+
   .card {
     flex-basis: calc((100% - 20px * 1) / 2);
   }
 }
 
 @media (min-width: 551px) and (max-width: 900px) {
+  body {
+    background-size: 3vw 3vw;
+  }
+
   .card {
     flex-basis: calc((100% - 20px * 2) / 3);
   }
