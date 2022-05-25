@@ -35,10 +35,18 @@ refreshButton.innerText = '🗘';
 refreshButton.setAttribute('title', 'Load another selection');
 header.appendChild(refreshButton);
 
+const headerBackground = document.createElement('div');
+headerBackground.setAttribute('class', 'periodic-table');
+header.appendChild(headerBackground);
+
+const headerBackgroundBase = document.createElement('div');
+headerBackgroundBase.setAttribute('class', 'periodic-table-base');
+header.appendChild(headerBackgroundBase);
+
 const cardContainer = document.createElement('main');
 body.appendChild(cardContainer);
 
-const hiddenRule = document.styleSheets[0].cssRules[21]['style'];
+const hiddenRule = document.styleSheets[0].cssRules[23]['style'];
 
 function card(apidata) {
   const cardWrap = document.createElement('div');

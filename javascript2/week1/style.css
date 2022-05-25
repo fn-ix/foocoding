@@ -15,6 +15,7 @@ body {
 }
 
 header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,7 +23,7 @@ header {
   gap: 10px;
   flex-basis: 100vw;
   flex-shrink: 0;
-  background-color: #f8f8f8;
+  background-color: #f8f8f885;
   border-bottom: 2px solid teal;
   box-shadow: 0 0 2px grey;
   text-shadow: 0 0 2px rgb(177, 177, 177);
@@ -64,6 +65,27 @@ input, button {
   .heading {
     flex: 0 0 100%;
   }
+}
+
+.periodic-table {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./periodic_table.svg') center;
+  filter: blur(2.5px) opacity(20%);
+  z-index: -1;
+}
+
+.periodic-table-base {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: -2;
 }
 
 main {
@@ -153,6 +175,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 -1px 1px rgba(135, 135, 135, 0.212);
 }
 
 .caption::after {
