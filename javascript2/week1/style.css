@@ -127,6 +127,10 @@ h3 {
   overflow: hidden;
 }
 
+.card p {
+  word-break: break-all;
+}
+
 @media (max-width: 400px) {
   body {
     background-size: 5vw 5vw;
