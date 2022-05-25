@@ -215,3 +215,40 @@ hr {
 .card:hover .caption::after {
   transform: rotate(180deg);
 }
+
+.no-results {
+  flex-basis: 100%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-results p {
+  padding: 0 6px;
+  background-color: rgb(230, 230, 230, 0.5);
+  text-shadow: 0 0 2px rgb(177, 177, 177);
+  border: 6px solid transparent;
+  animation-name: grid;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.1, 0.8, 0.2, 1);
+  animation-delay: 0s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+@keyframes grid {
+  0%, 100% {
+    border-color: transparent;
+    border-top-color: red;
+    border-bottom-color: red;
+  }
+
+  50% {
+    border-color: transparent;
+    border-left-color: red;
+    border-right-color: red;
+  }
+}

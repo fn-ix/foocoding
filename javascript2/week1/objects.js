@@ -113,6 +113,9 @@ function delCards() {
 }
 
 function loadCards(apidata, select) {
+  if (document.querySelector('.no-results') !== null) {
+    document.querySelector('.no-results').remove();
+  }
   delCards();
   hiddenRule.transition = 'none';
   for (let id of select) {
@@ -136,7 +139,26 @@ function searchCards(apidata, select) {
       result.push(apidata.indexOf(character));
     }
   }
-  loadCards(apidata, result);
+
+  if (result.length !== 0) {
+    loadCards(apidata, result);
+  } else if (document.querySelector('.no-results') === null) {
+    noResults();
+  }
+}
+
+function noResults() {
+  const noRes = document.createElement('div');
+  noRes.setAttribute('class', 'no-results');
+
+  const noResPara = document.createElement('p');
+  noResPara.innerText = 'No results found 😖';
+
+  cardContainer.appendChild(noRes);
+  noRes.appendChild(noResPara);
+
+  const headerHeight = header.offsetHeight;
+  noRes.setAttribute('style', `height: calc(100vh - ${headerHeight}px - 41px);`);
 }
 
 fetch('https://www.breakingbadapi.com/api/characters')
