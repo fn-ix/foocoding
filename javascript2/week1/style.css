@@ -265,13 +265,13 @@ hr {
 @keyframes grid {
   0%, 100% {
     border-color: transparent;
-    border-top-color: red;
-    border-bottom-color: red;
+    border-top-color: crimson;
+    border-bottom-color: crimson;
   }
 
   50% {
     border-color: transparent;
-    border-left-color: red;
-    border-right-color: red;
+    border-left-color: crimson;
+    border-right-color: crimson;
   }
 }
