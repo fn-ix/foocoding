@@ -35,10 +35,13 @@ refreshButton.innerText = '🗘';
 refreshButton.setAttribute('title', 'Load another selection');
 header.appendChild(refreshButton);
 
+const cardContainer = document.createElement('main');
+body.appendChild(cardContainer);
+
 function card(apidata) {
   const card = document.createElement('div');
   card.setAttribute('class', 'card');
-  body.appendChild(card);
+  cardContainer.appendChild(card);
 
   const charName = document.createElement('h3');
   charName.innerText = apidata.name;
