@@ -88,6 +88,7 @@ h3 {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -101,6 +102,7 @@ h3 {
       100% 20px,
       100% 100%,
       0 100%);
+  overflow: hidden;
 }
 
 @media (max-width: 400px) {
@@ -151,11 +153,12 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  bottom: 0;
+  transition: all 0.5s ease;
 }
 
 .caption::after {
   content: '⇪';
+  transition: all 0.5s ease;
 }
 
 img {
@@ -178,10 +181,11 @@ hr {
 }
 
 .hidden {
-  position: absolute;
+  position: relative;
   background-color: rgb(230, 230, 230, 0.8);
   padding: 5px 10px;
-  z-index: -999;
+  width: 100%;
+  transition: all 0.5s ease;
 }
 
 .hidden p {
@@ -206,10 +210,10 @@ hr {
 }
 
 .card:hover .hidden {
-  position: static;
-  z-index: 1;
+  bottom: 0 !important;
+  margin-top: 0 !important;
 }
 
 .card:hover .caption::after {
-  content: '';
+  transform: rotate(180deg);
 }

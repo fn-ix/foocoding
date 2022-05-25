@@ -84,6 +84,9 @@ function card(apidata) {
   const charActor = document.createElement('p');
   charActor.innerText = apidata.portrayed;
   hidden.appendChild(charActor);
+
+  const hiddenHeight = hidden.offsetHeight;
+  hidden.setAttribute('style', `bottom: -${hiddenHeight}px; margin-top: -${hiddenHeight}px`);
 };
 
 function idSelect(apidata) {
