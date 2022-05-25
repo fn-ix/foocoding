@@ -11,7 +11,7 @@ html {
 body {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px;
+  margin: 20px 20px 40px 20px;
   gap: 20px;
   background-color: #f8f8f8;
   opacity: 1;
@@ -22,9 +22,13 @@ body {
 
 header {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   left: -20px;
   top: -20px;
-  padding: 5px 80px 10px 30px;
+  padding: 5px 30px 10px 30px;
+  gap: 10px;
   flex-basis: 100vw;
   flex-shrink: 0;
   background-color: #f8f8f8;
@@ -32,11 +36,19 @@ header {
   text-shadow: 0 0 2px #ececec;
 }
 
+.heading {
+  flex: 3 1 50%;
+}
+
+input {
+  height: 40px;
+  flex: 1 1 10%;
+  width: 200px;
+  font-size: 1.2rem;
+}
+
 button {
-  position: absolute;
-  right: 20px;
-  top: calc(50% - 25px);
-  width: 50px;
+  flex: 0 0 50px;
   height: 50px;
   font-size: 1.8rem;
   line-height: 1.8rem;
@@ -44,12 +56,16 @@ button {
 }
 
 @media (max-width: 550px) {
-  button {
-    display: none;
+  header {
+    flex-wrap: wrap;
   }
 
-  header {
-    padding: 5px 30px 10px 30px;
+  .heading {
+    flex: 0 0 100%;
+  }
+
+  input {
+    flex: 1 1 0;
   }
 }
 
@@ -142,15 +158,15 @@ img {
   content: 'Also known as:';
 }
 
-.hidden p:nth-child(2)::before {
+.hidden p:nth-child(3)::before {
   content: 'Born:';
 }
 
-.hidden p:nth-child(3)::before {
+.hidden p:nth-child(5)::before {
   content: 'Currently:';
 }
 
-.hidden p:nth-child(4)::before {
+.hidden p:nth-child(7)::before {
   content: 'Portrayed by:';
 }
 
