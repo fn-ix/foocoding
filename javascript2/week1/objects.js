@@ -38,6 +38,8 @@ header.appendChild(refreshButton);
 const cardContainer = document.createElement('main');
 body.appendChild(cardContainer);
 
+const hiddenRule = document.styleSheets[0].cssRules[21]['style'];
+
 function card(apidata) {
   const cardWrap = document.createElement('div');
   cardWrap.setAttribute('class', 'card-wrap');
@@ -86,7 +88,7 @@ function card(apidata) {
   hidden.appendChild(charActor);
 
   const hiddenHeight = hidden.offsetHeight;
-  hidden.setAttribute('style', `bottom: -${hiddenHeight}px; margin-top: -${hiddenHeight}px`);
+  hidden.setAttribute('style', `bottom: -${hiddenHeight}px; margin-top: -${hiddenHeight}px;`);
 };
 
 function idSelect(apidata) {
@@ -112,9 +114,13 @@ function delCards() {
 
 function loadCards(apidata, select) {
   delCards();
+  hiddenRule.transition = 'none';
   for (let id of select) {
     card(apidata[id]);
   }
+  setTimeout(function () {
+    hiddenRule.transition = 'all 0.5s ease';
+  }, 50);
 }
 
 function searchCards(apidata, select) {
@@ -141,6 +147,7 @@ fetch('https://www.breakingbadapi.com/api/characters')
       loadCards(data, idSelect(data));
       searchBox.value = '';
     };
+
     refreshButton.addEventListener('click', reCard);
 
     const searchResult = function () {
