@@ -14,10 +14,9 @@ body {
   margin: 20px 20px 40px 20px;
   gap: 20px;
   background-color: #f8f8f8;
-  opacity: 1;
   background-image: linear-gradient(#ececec 1px, transparent 1px), linear-gradient(to right, #ececec 1px, #f8f8f8 1px);
   background-size: 2vw 2vw;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 header {
