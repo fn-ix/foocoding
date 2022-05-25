@@ -22,15 +22,17 @@ headingCaptionLink.innerText = "Breaking Bad API";
 headingCaptionLink.setAttribute('href', 'https://breakingbadapi.com/');
 
 const headingCaption = document.createElement('p');
-headingCaption.innerText = 'The page displays a random selection of 8 characters from the show; hitting the refresh button to the right will load another selection.\nBuilt with pure JavaScript & CSS, and the ';
+headingCaption.innerText = 'Using the ';
 heading.appendChild(headingCaption);
 headingCaption.appendChild(headingCaptionLink);
 
 const searchBox = document.createElement('input');
+searchBox.setAttribute('placeholder', 'Filter by name...');
 header.appendChild(searchBox);
 
 const refreshButton = document.createElement('button');
 refreshButton.innerText = '🗘';
+refreshButton.setAttribute('title', 'Load another selection');
 header.appendChild(refreshButton);
 
 function card(apidata) {

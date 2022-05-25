@@ -27,7 +27,7 @@ header {
   align-items: center;
   left: -20px;
   top: -20px;
-  padding: 5px 30px 10px 30px;
+  padding: 10px 30px;
   gap: 10px;
   flex-basis: 100vw;
   flex-shrink: 0;
