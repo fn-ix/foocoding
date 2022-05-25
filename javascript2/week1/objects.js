@@ -39,9 +39,13 @@ const cardContainer = document.createElement('main');
 body.appendChild(cardContainer);
 
 function card(apidata) {
+  const cardWrap = document.createElement('div');
+  cardWrap.setAttribute('class', 'card-wrap');
+  cardContainer.appendChild(cardWrap);
+
   const card = document.createElement('div');
   card.setAttribute('class', 'card');
-  cardContainer.appendChild(card);
+  cardWrap.appendChild(card);
 
   const charName = document.createElement('h3');
   charName.innerText = apidata.name;
@@ -99,7 +103,7 @@ function idSelect(apidata) {
 }
 
 function delCards() {
-  const cards = document.querySelectorAll('.card');
+  const cards = document.querySelectorAll('.card-wrap');
   cards.forEach(card => card.remove());
 }
 

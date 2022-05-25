@@ -24,7 +24,8 @@ header {
   flex-shrink: 0;
   background-color: #f8f8f8;
   border-bottom: 2px solid teal;
-  text-shadow: 0 0 2px #ececec;
+  box-shadow: 0 0 2px grey;
+  text-shadow: 0 0 2px rgb(177, 177, 177);
 }
 
 .heading {
@@ -36,6 +37,7 @@ input {
   flex: 0 1 20%;
   font-size: 1.2rem;
   overflow-x: hidden;
+  text-shadow: inherit;
 }
 
 button {
@@ -44,6 +46,10 @@ button {
   font-size: 1.8rem;
   line-height: 1.8rem;
   color: teal;
+}
+
+input, button {
+  box-shadow: 0 0 2px rgb(186, 186, 186);
 }
 
 @media (max-width: 550px) {
@@ -73,16 +79,21 @@ h3 {
   left: 0;
   margin: 10px;
   color: rgb(230, 230, 230);
-  text-shadow: 0 0 2px black;
+  text-shadow: 0 0 2px black !important;
+}
+
+.card-wrap {
+  flex-basis: calc((100% - 20px * 3) / 4);
+  filter: drop-shadow(0 0 3px grey);
 }
 
 .card {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  flex-basis: calc((100% - 20px * 3) / 4);
+  position: relative;
   height: 300px;
+  text-shadow: 0 0 2px grey;
   border: 2px solid teal;
   clip-path:
     polygon(0 0,
@@ -97,7 +108,7 @@ h3 {
     background-size: 5vw 5vw;
   }
 
-  .card {
+  .card-wrap {
     flex-basis: 100%;
   }
 }
@@ -107,7 +118,7 @@ h3 {
     background-size: 4vw 4vw;
   }
 
-  .card {
+  .card-wrap {
     flex-basis: calc((100% - 20px * 1) / 2);
   }
 }
@@ -117,7 +128,7 @@ h3 {
     background-size: 3vw 3vw;
   }
 
-  .card {
+  .card-wrap {
     flex-basis: calc((100% - 20px * 2) / 3);
   }
 }
@@ -158,6 +169,14 @@ img {
   z-index: -99;
 }
 
+hr {
+  border: none;
+  height: 2px;
+  background-color: grey;
+  box-shadow: 0 0 2px grey;
+  opacity: 0.4;
+}
+
 .hidden {
   position: absolute;
   background-color: rgb(230, 230, 230, 0.8);
@@ -171,19 +190,19 @@ img {
 }
 
 .hidden p:nth-child(1)::before {
-  content: 'Also known as:';
+  content: 'Also known as:\00a0';
 }
 
 .hidden p:nth-child(3)::before {
-  content: 'Born:';
+  content: 'Born:\00a0';
 }
 
 .hidden p:nth-child(5)::before {
-  content: 'Currently:';
+  content: 'Currently:\00a0';
 }
 
 .hidden p:nth-child(7)::before {
-  content: 'Portrayed by:';
+  content: 'Portrayed by:\00a0';
 }
 
 .card:hover .hidden {
