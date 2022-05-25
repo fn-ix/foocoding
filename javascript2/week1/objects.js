@@ -173,11 +173,11 @@ fetch('https://www.breakingbadapi.com/api/characters')
   .then(res => res.json())
   .then(data => {
     loadCards(data, idSelect(data));
+
     const reCard = function () {
       loadCards(data, idSelect(data));
       searchBox.value = '';
     };
-
     refreshButton.addEventListener('click', reCard);
 
     const searchResult = function () {
