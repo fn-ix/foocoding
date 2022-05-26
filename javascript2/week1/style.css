@@ -12,6 +12,7 @@ body {
   background-color: #f8f8f8;
   background-image: linear-gradient(#ececec 1px, transparent 1px), linear-gradient(to right, #ececec 1px, #f8f8f8 1px);
   background-size: 2vw 2vw;
+  font-family: sans-serif;
 }
 
 header {
