@@ -48,7 +48,7 @@ body.appendChild(cardContainer);
 
 const hiddenRule = document.styleSheets[0].cssRules[28]['style'];
 
-let pinnedCards = [];
+let pinnedCards = ['0'];
 
 function card(apidata, apidataindex) {
   const cardWrap = document.createElement('div');
@@ -135,7 +135,7 @@ function idSelect(apidata) {
   here: while (select.length < 8) {
     index = Math.floor(Math.random() * apidata.length);
     for (let id of select) {
-      if (id === index) {
+      if (id == index) {
         continue here;
       }
     }
