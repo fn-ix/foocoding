@@ -53,9 +53,13 @@ function card(apidata) {
   cardWrap.setAttribute('class', 'card-wrap');
   cardContainer.appendChild(cardWrap);
 
+  const cardBase = document.createElement('div');
+  cardBase.setAttribute('class', 'card-base');
+  cardWrap.appendChild(cardBase);
+
   const card = document.createElement('div');
   card.setAttribute('class', 'card');
-  cardWrap.appendChild(card);
+  cardBase.appendChild(card);
 
   const charName = document.createElement('h3');
   charName.innerText = apidata.name;
@@ -80,20 +84,32 @@ function card(apidata) {
   charNick.innerText = apidata.nickname;
   hidden.appendChild(charNick);
   charNick.after(hRule.cloneNode(true));
+  const charNickDesc = document.createElement('span');
+  charNickDesc.innerText = 'Also known as: ';
+  charNick.prepend(charNickDesc);
 
   const charBorn = document.createElement('p');
   apidata['birthday'] === 'Unknown' ? charBorn.innerText = 'Unknown' : charBorn.innerText = apidata['birthday'].substring(6, 10);
   hidden.appendChild(charBorn);
   charBorn.after(hRule.cloneNode(true));
+  const charBornDesc = document.createElement('span');
+  charBornDesc.innerText = 'Born: ';
+  charBorn.prepend(charBornDesc);
 
   const charStatus = document.createElement('p');
   charStatus.innerText = apidata.status;
   hidden.appendChild(charStatus);
   charStatus.after(hRule.cloneNode(true));
+  const charStatusDesc = document.createElement('span');
+  charStatusDesc.innerText = 'Currently: ';
+  charStatus.prepend(charStatusDesc);
 
   const charActor = document.createElement('p');
   charActor.innerText = apidata.portrayed;
   hidden.appendChild(charActor);
+  const charActorDesc = document.createElement('span');
+  charActorDesc.innerText = 'Also known as: ';
+  charActor.prepend(charActorDesc);
 
   const hiddenHeight = hidden.offsetHeight;
   hidden.setAttribute('style', `bottom: -${hiddenHeight}px; margin-top: -${hiddenHeight}px;`);
@@ -169,6 +185,17 @@ function noResults() {
   noRes.setAttribute('style', `height: calc(100vh - ${headerHeight}px - 41px);`);
 }
 
+function resizeCard() {
+  hiddenRule.transition = 'none';
+  const hiddenArray = [...document.querySelectorAll('.hidden')];
+
+  for (element of hiddenArray) {
+    let hiddenHeight = element.offsetHeight;
+    element.setAttribute('style', `bottom: -${hiddenHeight}px; margin-top: -${hiddenHeight}px;`);
+  }
+  hiddenRule.transition = 'all 0.5s ease';
+}
+
 fetch('https://www.breakingbadapi.com/api/characters')
   .then(res => res.json())
   .then(data => {
@@ -184,5 +211,6 @@ fetch('https://www.breakingbadapi.com/api/characters')
       searchCards(data, idSelect(data));
     };
     searchBox.addEventListener('input', searchResult);
+    window.onresize = resizeCard;
   }
   );
