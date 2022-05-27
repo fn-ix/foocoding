@@ -127,6 +127,25 @@ h3 {
 .card-wrap {
   flex-basis: calc((100% - 20px * 3) / 4);
   filter: drop-shadow(0 0 3px grey);
+  position: relative;
+}
+
+.card-notch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(100, 148, 237, 0.26);
+  clip-path:
+    polygon(0 0,
+      100% 100%,
+      100% 0);
+  transition: all 0.1s ease;
+}
+
+.card-notch:hover {
+  background-color: rgba(255, 127, 80, 0.482);
 }
 
 .card-base {
@@ -137,8 +156,8 @@ h3 {
   align-items: center;
   clip-path:
     polygon(0 0,
-      calc(100% - 21px) 0,
-      100% 21px,
+      calc(100% - 27px) 0,
+      100% 27px,
       100% 100%,
       0 100%);
 }
@@ -154,8 +173,8 @@ h3 {
   text-shadow: 0 0 2px grey;
   clip-path:
     polygon(0 0,
-      calc(100% - 20px) 0,
-      100% 20px,
+      calc(100% - 26px) 0,
+      100% 26px,
       100% 100%,
       0 100%);
   overflow: hidden;
@@ -240,6 +259,11 @@ hr {
 .hidden p {
   display: flex;
   justify-content: space-between;
+  text-align: right;
+}
+
+.hidden span {
+  text-align: left;
 }
 
 .card:hover .hidden {

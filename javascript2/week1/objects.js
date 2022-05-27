@@ -46,12 +46,25 @@ header.appendChild(headerBackgroundBase);
 const cardContainer = document.createElement('main');
 body.appendChild(cardContainer);
 
-const hiddenRule = document.styleSheets[0].cssRules[26]['style'];
+const hiddenRule = document.styleSheets[0].cssRules[28]['style'];
 
-function card(apidata) {
+let pinnedCards = ['0'];
+
+function card(apidata, apidataindex) {
   const cardWrap = document.createElement('div');
   cardWrap.setAttribute('class', 'card-wrap');
   cardContainer.appendChild(cardWrap);
+
+  const cardNotch = document.createElement('div');
+  cardNotch.setAttribute('class', 'card-notch');
+  cardNotch.setAttribute('id', apidataindex);
+  cardNotch.addEventListener('click', cardPin);
+  for (id of pinnedCards) {
+    if (id === apidataindex) {
+      cardNotch.setAttribute('style', 'background-color: coral;');
+    }
+  }
+  cardWrap.appendChild(cardNotch);
 
   const cardBase = document.createElement('div');
   cardBase.setAttribute('class', 'card-base');
@@ -116,7 +129,7 @@ function card(apidata) {
 };
 
 function idSelect(apidata) {
-  let select = [];
+  let select = [...pinnedCards];
   let index;
 
   here: while (select.length < 8) {
@@ -143,7 +156,7 @@ function loadCards(apidata, select) {
   delCards();
   hiddenRule.transition = 'none';
   for (let id of select) {
-    card(apidata[id]);
+    card(apidata[id], id);
   }
   setTimeout(function () {
     hiddenRule.transition = 'all 0.5s ease';
@@ -156,10 +169,15 @@ function searchCards(apidata, select) {
     return;
   }
   delCards();
-  let result = [];
+  let result = [...pinnedCards];
 
-  for (character of apidata) {
+  here: for (character of apidata) {
     if (character.name.toLowerCase().includes(searchBox.value.toLowerCase())) {
+      for (id of pinnedCards) {
+        if (id == apidata.indexOf(character)) {
+          continue here;
+        }
+      }
       result.push(apidata.indexOf(character));
     }
   }
@@ -196,6 +214,24 @@ function resizeCard() {
   hiddenRule.transition = 'all 0.5s ease';
 }
 
+function cardPin() {
+  const notchId = event.target.id;
+
+  for (id of pinnedCards) {
+    if (id === notchId) {
+      pinnedCards.splice(pinnedCards.indexOf(id), 1);
+      event.target.removeAttribute('style');
+      if ((pinnedCards.length === 0) && ([...document.querySelectorAll('.card')].length) === 1) {
+        delCards();
+        noResults();
+      }
+      return;
+    }
+  }
+  pinnedCards.push(notchId);
+  event.target.setAttribute('style', 'background-color: coral;');
+}
+
 fetch('https://www.breakingbadapi.com/api/characters')
   .then(res => res.json())
   .then(data => {
@@ -211,6 +247,7 @@ fetch('https://www.breakingbadapi.com/api/characters')
       searchCards(data, idSelect(data));
     };
     searchBox.addEventListener('input', searchResult);
+
     window.onresize = resizeCard;
   }
   );
