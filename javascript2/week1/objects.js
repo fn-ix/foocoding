@@ -121,7 +121,7 @@ function card(apidata, apidataindex) {
   charActor.innerText = apidata.portrayed;
   hidden.appendChild(charActor);
   const charActorDesc = document.createElement('span');
-  charActorDesc.innerText = 'Also known as: ';
+  charActorDesc.innerText = 'Portrayed by: ';
   charActor.prepend(charActorDesc);
 
   const hiddenHeight = hidden.offsetHeight;
