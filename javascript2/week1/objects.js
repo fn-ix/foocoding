@@ -48,7 +48,7 @@ body.appendChild(cardContainer);
 
 const hiddenRule = document.styleSheets[0].cssRules[28]['style'];
 
-let pinnedCards = ['0'];
+let pinnedCards = [];
 
 function card(apidata, apidataindex) {
   const cardWrap = document.createElement('div');
