@@ -46,7 +46,7 @@ header.appendChild(headerBackgroundBase);
 const cardContainer = document.createElement('main');
 body.appendChild(cardContainer);
 
-const hiddenRule = document.styleSheets[0].cssRules[24]['style'];
+const hiddenRule = document.styleSheets[0].cssRules[26]['style'];
 
 function card(apidata) {
   const cardWrap = document.createElement('div');
