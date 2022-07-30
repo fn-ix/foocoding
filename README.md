@@ -14,4 +14,7 @@
 - Week 2: [Exercises](https://github.com/fn-ix/foocoding/tree/main/javascript2/week2/exercises) & [JSON Parsing Site](https://fn-ix.github.io/foocoding/javascript2/week2/)
 - Week 3: [Exercises](https://github.com/fn-ix/foocoding/blob/main/javascript2/week3/exercises.js)
 
+### JavaScript 3
+- Summer break: [Portfolio page](https://fn-ix.github.io/foocoding/javascript3/portfolio/)
+
 ⏻
