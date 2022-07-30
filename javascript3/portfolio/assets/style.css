@@ -232,8 +232,9 @@ article {
 
 #bin-clock {
   font-family: ibm;
-  width: 100%;
   text-align: center;
+  width: fit-content;
+  margin: auto;
   margin-top: 30px;
   position: relative;
   cursor: default;
