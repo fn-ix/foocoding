@@ -201,7 +201,7 @@ article {
   overflow: hidden;
   font-family: ibm;
   font-size: 3rem;
-  width: 19.5rem;
+  width: 19.6rem;
   margin: 5px 5px 20px 5px;
   white-space: nowrap;
   border-right: 3px solid green;
@@ -216,7 +216,7 @@ article {
   }
 
   to {
-    width: 19.5rem;
+    width: 19.6rem;
   }
 }
 
