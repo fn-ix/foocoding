@@ -201,11 +201,12 @@ article {
   overflow: hidden;
   font-family: ibm;
   font-size: 3rem;
-  width: 10rem;
+  width: 20rem;
   margin: 5px 5px 20px 5px;
+  white-space: nowrap;
   border-right: 3px solid green;
   animation:
-    typing 1s steps(6, end),
+    typing 1s steps(11, end),
     blink-caret .8s step-end infinite;
 }
 
@@ -215,7 +216,7 @@ article {
   }
 
   to {
-    width: 10rem;
+    width: 20rem;
   }
 }
 
