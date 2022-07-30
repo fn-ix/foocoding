@@ -171,7 +171,6 @@ function buildRepos() {
       });
 
     repoHeader.addEventListener('click', openCloseCard);
-    // const contentHeight = cardContent.offsetHeight;
     cardContent.setAttribute('style', 'height: 0;');
 
     function openCloseCard() {
