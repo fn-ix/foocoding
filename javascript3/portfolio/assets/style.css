@@ -203,10 +203,10 @@ article {
   font-size: 3rem;
   width: 10rem;
   margin: 5px 5px 20px 5px;
-  border-right: .2rem solid green;
+  border-right: 3px solid green;
   animation:
     typing 1s steps(6, end),
-    blink-caret .75s step-end infinite;
+    blink-caret .8s step-end infinite;
 }
 
 @keyframes typing {
@@ -234,6 +234,17 @@ article {
   width: 100%;
   text-align: center;
   margin-top: 30px;
+  position: relative;
+  cursor: default;
+}
+
+#bin-clock:hover::after {
+  content: "I'm a binary clock!";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 20px;
+  text-align: center;
 }
 
 /* contact page */
