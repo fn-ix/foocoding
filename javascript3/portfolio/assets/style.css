@@ -1,0 +1,497 @@
+/* global */
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+@font-face {
+  font-family: ibm;
+  src: url(./3270-Regular.otf);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Play', sans-serif;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 900px;
+  padding-left: 4rem;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* navbar */
+nav {
+  position: fixed;
+  left: calc(50vw - 500px);
+  margin-left: 50px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+}
+
+.stripes {
+  width: 2rem;
+  flex: 1 0 0;
+  background: repeating-linear-gradient(to top,
+      transparent, transparent 1vh, white 1vh, white 2vh);
+  filter: drop-shadow(0 0 2px gray);
+}
+
+nav button {
+  width: 2rem;
+  writing-mode: vertical-lr;
+  background: repeating-linear-gradient(to top,
+      rgb(240, 240, 240), rgb(240, 240, 240) 2px, rgb(242, 242, 242) 2px, rgb(242, 242, 242) 4px);
+  border: 3px solid #fff;
+  padding: 10px 0;
+  box-shadow: 0px 0px 2px gray;
+  text-shadow: 0px 0px 1px grey;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  transition: border 0.2s ease;
+  cursor: pointer;
+}
+
+nav button:hover {
+  border-color: rgb(255, 177, 149);
+}
+
+nav button:active {
+  background: white;
+}
+
+/* main content */
+.page-wrapper-shadow {
+  filter: drop-shadow(0 0 2px gray);
+  margin: 30px 0;
+}
+
+.page-wrapper-border {
+  --notchSize: 30px;
+  clip-path:
+    polygon(0% var(--notchSize),
+      var(--notchSize) 0%,
+      calc(100% - var(--notchSize)) 0%,
+      100% var(--notchSize),
+      100% calc(100% - var(--notchSize)),
+      calc(100% - var(--notchSize)) 100%,
+      var(--notchSize) 100%,
+      0% calc(100% - var(--notchSize)));
+  background-color: coral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-wrapper {
+  min-height: 280px;
+  margin: 2px;
+  width: calc(100% - 4px);
+  padding: 16px;
+  --notchSize: 30px;
+  clip-path:
+    polygon(0% var(--notchSize),
+      var(--notchSize) 0%,
+      calc(100% - var(--notchSize)) 0%,
+      100% var(--notchSize),
+      100% calc(100% - var(--notchSize)),
+      calc(100% - var(--notchSize)) 100%,
+      var(--notchSize) 100%,
+      0% calc(100% - var(--notchSize)));
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 30px solid coral;
+  background: repeating-linear-gradient(to top,
+      rgb(240, 240, 240), rgb(240, 240, 240) 2px, rgb(242, 242, 242) 2px, rgb(242, 242, 242) 4px);
+}
+
+article {
+  position: relative;
+  text-shadow: 0px 0px 1px grey;
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+}
+
+.page-title {
+  position: absolute;
+  writing-mode: vertical-lr;
+  left: -48px;
+  color: #eee;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: 1.4rem;
+}
+
+/* responsive */
+@media (min-width: 577px) and (max-width: 900px) {
+  nav {
+    left: 50px;
+    margin-left: 0;
+  }
+
+  .wrapper {
+    padding-left: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  nav {
+    height: auto;
+    width: 100vw;
+    left: 0;
+    top: 20px;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0;
+  }
+
+  nav button {
+    writing-mode: horizontal-tb;
+    width: auto;
+    padding: 5px 10px;
+  }
+
+  .stripes {
+    background: repeating-linear-gradient(to right,
+        transparent, transparent 1vh, white 1vh, white 2vh);
+  }
+
+  .wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 100px;
+  }
+}
+
+/* home */
+#home {
+  max-width: 500px;
+}
+
+#home p {
+  margin: 5px;
+}
+
+#home h1 {
+  overflow: hidden;
+  font-family: ibm;
+  font-size: 3rem;
+  width: 10rem;
+  margin: 5px 5px 20px 5px;
+  border-right: .2rem solid green;
+  animation:
+    typing 1s steps(6, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 10rem;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: green;
+  }
+}
+
+#bin-clock {
+  font-family: ibm;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* contact page */
+#wpform {
+  max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-element {
+  flex: 1 1 calc(50% - 10px);
+}
+
+.form-element:nth-child(3) {
+  flex: 1 1 100%;
+}
+
+.form-element:nth-child(4) {
+  flex: 0 1 40%;
+}
+
+.form-element input {
+  width: 100%;
+  height: 25px;
+}
+
+.form-element textarea {
+  width: 100%;
+  height: 200px;
+}
+
+#contact button {
+  font-size: 1rem;
+  background-color: coral;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 35px;
+  margin: 5px 0 0 0;
+  --notchSize: 10px;
+  border: none;
+  clip-path:
+    polygon(0% var(--notchSize),
+      var(--notchSize) 0%,
+      calc(100% - var(--notchSize)) 0%,
+      100% var(--notchSize),
+      100% calc(100% - var(--notchSize)),
+      calc(100% - var(--notchSize)) 100%,
+      var(--notchSize) 100%,
+      0% calc(100% - var(--notchSize)));
+  transition: background-color 0.1s ease;
+  cursor: pointer;
+}
+
+#contact button:hover {
+  background-color: rgb(255, 177, 149);
+}
+
+#contact button:active {
+  background-color: white;
+}
+
+#contact p {
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+/* repo page */
+#repos>p {
+  margin: 5px;
+}
+
+.repository {
+  margin-bottom: 10px;
+  border: 1px solid rgb(186, 186, 186);
+  border-bottom: 4px solid coral;
+}
+
+.repo-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.repo-header span {
+  font-weight: normal;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.card-content p {
+  padding: 5px;
+}
+
+.error {
+  color: red;
+}
+
+.readme-title {
+  grid-column: 1 / 3;
+  padding: 5px 5px 0 5px;
+}
+
+.readme {
+  grid-column: 1 / 3;
+  border: 1px solid rgb(186, 186, 186);
+  margin: 5px;
+  max-width: 600px;
+  padding: 10px 20px !important;
+  background-color: rgb(251, 251, 251);
+}
+
+/* admin page */
+.password {
+  position: relative;
+}
+
+.password .form-element {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.password label {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+#enter-password {
+  margin-top: 10px;
+  flex-basis: 40%;
+}
+
+.password>p {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 0.6rem;
+}
+
+#wrong-pass {
+  font-size: 0.8rem;
+  color: red;
+  bottom: 0;
+}
+
+.deletion {
+  display: none;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+  border: 4px dashed red;
+  padding: 20px;
+}
+
+.deletion h3 {
+  flex-basis: 100%;
+}
+
+.deletion button {
+  flex-basis: 20%;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  --notchSize: 10px;
+  padding: 10px;
+  clip-path:
+    polygon(0% var(--notchSize),
+      var(--notchSize) 0%,
+      calc(100% - var(--notchSize)) 0%,
+      100% var(--notchSize),
+      100% calc(100% - var(--notchSize)),
+      calc(100% - var(--notchSize)) 100%,
+      var(--notchSize) 100%,
+      0% calc(100% - var(--notchSize)));
+  transition: background-color 0.1s ease;
+  cursor: pointer;
+  background-color: red;
+}
+
+.deletion button:hover {
+  background-color: rgb(255, 111, 111);
+}
+
+.addition {
+  display: none;
+  padding: 24px;
+  margin-top: 10px;
+}
+
+.addition form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.addition .form-element:nth-child(1) {
+  flex-basis: 40%;
+  flex-grow: 0;
+}
+
+.addition .form-element:nth-child(2) {
+  flex-basis: 0;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.addition .form-element:nth-child(3) {
+  flex-basis: 100%;
+}
+
+.addition button {
+  flex-basis: 40%;
+  flex-grow: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  --notchSize: 10px;
+  padding: 10px;
+  clip-path:
+    polygon(0% var(--notchSize),
+      var(--notchSize) 0%,
+      calc(100% - var(--notchSize)) 0%,
+      100% var(--notchSize),
+      100% calc(100% - var(--notchSize)),
+      calc(100% - var(--notchSize)) 100%,
+      var(--notchSize) 100%,
+      0% calc(100% - var(--notchSize)));
+  transition: background-color 0.1s ease;
+  cursor: pointer;
+  color: white;
+  background-color: coral;
+}
+
+.addition button:hover {
+  background-color: rgb(255, 177, 149);
+}
+
+.addition button:active {
+  background-color: white;
+}
+
+.alert {
+  position: absolute;
+  color: red;
+  font-size: 0.7rem;
+  bottom: -1.4rem;
+  text-align: center;
+}
