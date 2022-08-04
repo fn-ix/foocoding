@@ -17,4 +17,7 @@
 ### JavaScript 3
 - Summer break: [Portfolio page](https://fn-ix.github.io/foocoding/javascript3/portfolio/)
 
+### Node.js
+- Week 1: [server.js](https://github.com/fn-ix/foocoding/blob/main/node/week1/server.js)
+
 ⏻
