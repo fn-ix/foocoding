@@ -9,7 +9,7 @@ const remove = require('./remove');
 const reset = require('./reset');
 const update = require('./update');
 
-const todoFile = './src/todo.json';
+const todoFile = './todo.json';
 
 program
   .name('index.js')
@@ -22,8 +22,6 @@ program
 
 program.parse();
 
-const options = program.opts();
-
 let chunks = '';
 const readStream = fs.createReadStream(todoFile, 'utf-8');
 
@@ -34,6 +32,7 @@ readStream.once('end', processCommand);
 
 function processCommand() {
   const todoList = chunks ? JSON.parse(chunks) : [];
+  const options = program.opts();
 
   if (options.list) list(todoList);
   if (options.add) add(todoList, todoFile, options.add, program.args);
