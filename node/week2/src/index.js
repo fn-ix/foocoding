@@ -18,9 +18,8 @@ program
   .option('--add [items]', 'add item(s) to the list')
   .option('--update <index> [item]', 'overwrite the item at the specified index')
   .option('--remove <index>', 'remove the item at the specified index')
-  .option('--reset', 'empty the to-do list');
-
-program.parse();
+  .option('--reset', 'empty the to-do list')
+  .parse();
 
 let chunks = '';
 const readStream = fs.createReadStream(todoFile, 'utf-8');
