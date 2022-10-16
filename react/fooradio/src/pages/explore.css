@@ -1,0 +1,42 @@
+.explore {
+  flex: 1;
+  display: flex;
+  background-color: var(--main-bg-color);
+  gap: 10px;
+}
+
+.explore-home-section {
+  flex: 1;
+  background-color: var(--section-bg-color);
+  border-left: 1.5px solid var(--section-border-color);
+  border-right: 1.5px solid var(--section-border-color);
+  display: flex;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  max-height: calc(100vh - 120px);
+  overflow-y: scroll;
+}
+
+.explore-section-title {
+  background-color: var(--section-border-color);
+  height: fit-content;
+  position: sticky;
+  top: -10px;
+  padding: 4px;
+  font-family: 'UniversExtra';
+  flex: 1 0 calc(100% + 20px);
+  margin-top: -10px;
+  z-index: 3;
+}
+
+#section-newly-added {
+  border-right: none;
+}
+
+.loader {
+  height: 40px;
+  flex-basis: 100%;
+}

@@ -1,0 +1,34 @@
+.library {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-bg-color);
+  gap: 10px;
+}
+
+.library-section {
+  flex: 1;
+  background-color: var(--section-bg-color);
+  border-left: 1.5px solid var(--section-border-color);
+  border-right: 1.5px solid var(--section-border-color);
+  border-bottom: 1.5px solid var(--section-border-color);
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+.library-section:nth-of-type(2) {
+  border-bottom: none;
+}
+
+.library-section-title {
+  background-color: var(--section-border-color);
+  height: fit-content;
+  padding: 4px;
+  font-family: 'UniversExtra';
+  flex: 1 0 calc(100% + 20px);
+  margin-top: -10px;
+  margin-left: -10px;
+}

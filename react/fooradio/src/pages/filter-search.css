@@ -1,0 +1,35 @@
+.filter, .search {
+  flex: 1;
+}
+
+.filter-section, .search-section {
+  background-color: var(--section-bg-color);
+  border-left: 1.5px solid var(--section-border-color);
+  border-right: 1.5px solid var(--section-border-color);
+  display: flex;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  min-height: 100%;
+  max-height: calc(100vh - 120px);
+  overflow-y: scroll;
+}
+
+.filter-title, .search-title {
+  background-color: var(--section-border-color);
+  height: fit-content;
+  position: sticky;
+  top: -10px;
+  padding: 4px;
+  font-family: 'UniversExtra';
+  flex: 1 0 calc(100% + 20px);
+  margin-top: -10px;
+  z-index: 3;
+}
+
+.loader {
+  height: 40px;
+  flex-basis: 100%;
+}

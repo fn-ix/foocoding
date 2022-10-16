@@ -1,0 +1,93 @@
+/* main button elements */
+.main-button {
+  height: 100%;
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  padding: 0 20px;
+  font-family: 'UniversExtra';
+  font-size: 1.2rem;
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+
+.player-button {
+  height: 70%;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+
+.filter-top-button {
+  width: 100%;
+  writing-mode: vertical-rl;
+  font-family: 'UniversExtra';
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  background-color: var(--section-border-color);
+  padding: 10px 0;
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+
+.filter-bottom-button {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  background-color: var(--section-border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+
+.search-button {
+  height: 50%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-bg-color);
+  border: 1.4px solid var(--text-color);
+  cursor: pointer;
+  transition: all ease 0.1s;
+}
+
+.search-button:hover {
+  background-color: var(--section-bg-color);
+}
+
+.search-button:active {
+  background-color: var(--extra-highlight-color);
+}
+
+.filter-bottom-button img, .player-button img, .search-button img {
+  width: 60%;
+}
+
+/* link wrappers */
+.main-link {
+  height: 70%;
+}
+
+.filter-top-link, .filter-bottom-link {
+  width: 70%;
+}
+
+/* shared pseudoclasses */
+.main-button:hover, .filter-top-button:hover, .filter-bottom-button:hover, .player-button:hover, .card-control-button:hover {
+  background-color: var(--main-bg-color);
+}
+
+.main-button:active, .filter-top-button:active, .filter-bottom-button:active, .active-button, .player-button:active, .card-control-button:active {
+  background-color: var(--section-bg-color);
+  border-color: var(--section-bg-color);
+}

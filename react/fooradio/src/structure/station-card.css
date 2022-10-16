@@ -1,0 +1,142 @@
+.station-card {
+  height: 80px;
+  border: 1.5px solid var(--section-border-color);
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.card-content {
+  width: 100%;
+  padding: 5px 25px 5px 50px;
+  transition: all ease 0.1s;
+  cursor: pointer;
+}
+
+.card-content img {
+  height: 40px;
+  max-width: 40px;
+  top: 20px;
+  left: 5px;
+  position: absolute;
+}
+
+.card-content p {
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  word-break: break-all;
+}
+
+.card-content p:first-of-type {
+  font-weight: bold;
+}
+
+.card-content:hover {
+  background-color: var(--main-bg-color);
+}
+
+.card-content:active {
+  background-color: var(--extra-highlight-color);
+  border-color: var(--extra-highlight-color);
+}
+
+.card-controls {
+  position: absolute;
+  padding: 5px 5px 5px 25px;
+  height: 100%;
+  width: calc(100% + 1.5px);
+  transform: translateX(calc(100% - 20px));
+  top: 0;
+  border-left: 1.5px solid var(--section-border-color);
+  background-color: var(--bar-bg-color);
+  transition: transform ease 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card-controls:hover {
+  transform: translateX(-1.5px);
+}
+
+.card-controls:hover .info-box-arrow {
+  transform: scale(-1);
+}
+
+.info-box {
+  position: absolute;
+  left: 0px;
+  width: 20px;
+  height: 100%;
+  border-right: 1.5px dashed var(--section-border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-box-arrow {
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  padding-right: 1px;
+  transition: all 0.5s ease;
+}
+
+.info-box-favorite {
+  position: absolute;
+  top: 5px;
+  width: 65%;
+}
+
+.info-box-playing {
+  position: absolute;
+  bottom: 5px;
+  width: 50%;
+}
+
+.explore-station-card {
+  flex: 0 0 calc(50% - 10px);
+}
+
+.filter-station-card {
+  flex: 0 0 calc(25% - 10px);
+}
+
+.card-control-button {
+  height: 60%;
+  z-index: 5;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  transition: all ease 0.1s;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-control-button img {
+  margin-top: 2px;
+  width: 70%;
+}
+
+.library-station-card {
+  flex: 0 0 200px;
+  height: 200px;
+  border: 1.5px solid var(--section-border-color);
+  padding: 5px 5px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.library-station-card img {
+  width: 90%;
+  top: 20px;
+  left: 5px;
+}
+
+.library-station-card p {
+  flex-basis: 100%;
+  font-weight: bold;
+}

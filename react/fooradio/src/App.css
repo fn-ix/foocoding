@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'UniversExtra';
+  src: url('./assets/UniversExtra.woff2');
+}
+
+@font-face {
+  font-family: 'Univers';
+  src: url('./assets/Univers.woff2');
+}
+
+:root {
+  --text-color: #273a3f;
+  --main-bg-color: #adb9b5;
+  --bar-bg-color: #899895;
+  --section-bg-color: #bcc5c0;
+  --section-border-color: #9ba69f;
+  --extra-highlight-color: #cbd5d0;
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  color: var(--text-color);
+
+}
+
+.view {
+  flex: 1;
+  display: flex;
+  background-color: var(--main-bg-color);
+  gap: 10px;
+}
+
+audio {
+  display: none;
+}
