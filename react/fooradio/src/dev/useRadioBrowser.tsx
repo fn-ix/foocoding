@@ -38,7 +38,7 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
       setLoading(true);
       setError(false);
 
-      const linkBase = 'http://95.179.139.106/json';
+      const linkBase = 'https://nl1.api.radio-browser.info/json';
       const headers = new Headers({
         "Accept": "application/json",
         "Content-Type": "application/json",
