@@ -83,11 +83,11 @@
 }
 
 /* shared pseudoclasses */
-.main-button:hover, .filter-top-button:hover, .filter-bottom-button:hover, .player-button:hover, .card-control-button:hover {
+.main-button:hover, .filter-top-button:hover, .filter-bottom-button:hover, .player-button:hover, .card-control-button:hover, .library-card-button:hover {
   background-color: var(--main-bg-color);
 }
 
-.main-button:active, .filter-top-button:active, .filter-bottom-button:active, .active-button, .player-button:active, .card-control-button:active {
+.main-button:active, .filter-top-button:active, .filter-bottom-button:active, .active-button, .player-button:active, .card-control-button:active, .library-card-button:active {
   background-color: var(--section-bg-color);
   border-color: var(--section-bg-color);
 }

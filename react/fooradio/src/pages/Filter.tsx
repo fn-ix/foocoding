@@ -1,4 +1,4 @@
-import './filter-search.css';
+import './filter-search-collection.css';
 import FilterCard from '../structure/FilterCard';
 import { useParams } from 'react-router-dom';
 import StationCard from '../structure/StationCard';

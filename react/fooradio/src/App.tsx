@@ -4,6 +4,7 @@ import Sidebar from './structure/Sidebar';
 import Explore from './pages/Explore';
 import Library from './pages/Library';
 import Search from './pages/Search';
+import Collection from './pages/Collection';
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState, useRef, createContext } from 'react';
 import Filter from './pages/Filter';
@@ -61,6 +62,7 @@ export default function App() {
           <Routes>
             <Route path='/' element={<Explore />} />
             <Route path='/library' element={<Library />} />
+            <Route path='/library/:id' element={<Collection />} />
             <Route path='/countries' element={<Filter type='countries' />} />
             <Route path='/languages' element={<Filter type='languages' />} />
             <Route path='/tags' element={<Filter type='tags' />} />

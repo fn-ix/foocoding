@@ -1,4 +1,4 @@
-import './filter-search.css';
+import './filter-search-collection.css';
 import StationCard from '../structure/StationCard';
 import loader from '../assets/loading.svg';
 import useRadioBrowser from '../dev/useRadioBrowser';

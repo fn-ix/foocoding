@@ -1,0 +1,36 @@
+.collection-link {
+  flex: 0 0 200px;
+  height: 200px;
+  border: 1.5px solid var(--section-border-color);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: all ease 0.1s;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+.collection-card-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.collection-card-logo {
+  width: calc(40% - 5px);
+  aspect-ratio: 1/1;
+}
+
+.collection-link:hover {
+  background-color: var(--main-bg-color);
+}
+
+.collection-link:active {
+  background-color: var(--extra-highlight-color);
+  border-color: var(--extra-highlight-color);
+}

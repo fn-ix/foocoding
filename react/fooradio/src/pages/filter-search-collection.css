@@ -1,0 +1,90 @@
+.filter, .search, .collection {
+  flex: 1;
+}
+
+.filter-section, .search-section, .collection-section {
+  background-color: var(--section-bg-color);
+  border-left: 1.5px solid var(--section-border-color);
+  border-right: 1.5px solid var(--section-border-color);
+  display: flex;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  min-height: 100%;
+  max-height: calc(100vh - 120px);
+  overflow-y: scroll;
+}
+
+.filter-title, .search-title, .collection-title {
+  background-color: var(--section-border-color);
+  height: fit-content;
+  position: sticky;
+  top: -10px;
+  padding: 4px;
+  font-family: 'UniversExtra';
+  flex: 1 0 calc(100% + 20px);
+  margin-top: -10px;
+  z-index: 3;
+}
+
+.collection-title {
+  font-family: 'Univers';
+}
+
+.collection-title .title-text {
+  font-family: 'UniversExtra';
+  border-bottom: 2px dashed var(--text-color);
+}
+
+.collection-form {
+  display: flex;
+  height: 1.2rem;
+  align-items: center;
+}
+
+.collection-input {
+  height: 100%;
+  width: 150px;
+  background-color: var(--main-bg-color);
+  border: 1.4px solid var(--text-color);
+  border-right: none;
+  transition: all ease 0.1s;
+  padding: 0 5px;
+}
+
+.collection-input:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: var(--section-bg-color);
+}
+
+.collection-close-button {
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-bg-color);
+  border: 1.4px solid var(--text-color);
+  cursor: pointer;
+  transition: all ease 0.1s;
+}
+
+.collection-close-button:hover {
+  background-color: var(--section-bg-color);
+}
+
+.collection-close-button:active {
+  background-color: var(--extra-highlight-color);
+}
+
+.collection-close-button img {
+  height: 10px;
+}
+
+.loader {
+  height: 40px;
+  flex-basis: 100%;
+}

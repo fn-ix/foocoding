@@ -6,7 +6,7 @@ import pauseVector from '../assets/pause.svg';
 import searchVector from '../assets/search.svg';
 import { GlobalContext } from '../App';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface ButtonInt {
   type: 'main' | 'filter-top' | 'filter-bottom' | 'player' | 'search',
@@ -17,6 +17,7 @@ interface ButtonInt {
 
 export default function Button(props: ButtonInt) {
   const context = useContext(GlobalContext);
+  const path = useLocation().pathname;
 
   function handlePlay() {
     const audio = context.audio.current;
@@ -59,7 +60,7 @@ export default function Button(props: ButtonInt) {
         );
       } else {
         return (
-          <Link to='/' className={`${props.type}-link`}>
+          <Link to={(path.slice(0, 8) === '/library') ? '/library' : '/'} className={`${props.type}-link`}>
             <button className={`${props.type}-button ${(props.name === props.current) ? 'active' : 'inactive'}-button`} name={props.name}>
               <img src={homeVector} alt={props.name} />
             </button>

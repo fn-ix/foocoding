@@ -51,7 +51,7 @@ export default function ControlBar(props: ControlBarInt) {
   }
 
   if (props.position === 'top') {
-    const currentMain = (path === '/library') ? 'library' : 'explore';
+    const currentMain = (path.slice(0, 8) === '/library') ? 'library' : 'explore';
     return (
       <div className='control-bar bar-top'>
         <a href="/" className='logo-link'><img className='logo' src={logo} alt='logo' /></a>
