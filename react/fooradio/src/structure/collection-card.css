@@ -13,6 +13,14 @@
   font-weight: bold;
 }
 
+@media (max-width: 585px) {
+  .collection-link {
+    flex: 0 0 100px;
+    height: 100px;
+    font-size: 0.8rem;
+  }
+}
+
 .collection-card-logos {
   display: flex;
   justify-content: center;

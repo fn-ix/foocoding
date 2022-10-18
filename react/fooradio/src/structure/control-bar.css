@@ -11,6 +11,7 @@
 .bar-top {
   border-bottom: 2px solid var(--text-color);
   justify-content: center;
+  gap: 10px;
 }
 
 .main-nav {
@@ -28,6 +29,7 @@
 
 .search-field {
   height: 50%;
+  width: 153px;
   background-color: var(--main-bg-color);
   border: 1.4px solid var(--text-color);
   border-right: none;
@@ -56,6 +58,11 @@
   height: 100%;
 }
 
+.logo-mini {
+  height: calc(0.6 * 60px);
+  display: none;
+}
+
 .playing-logo {
   height: 70%;
   aspect-ratio: 1/1;
@@ -68,6 +75,59 @@
 .volume-icon {
   height: 18px;
   cursor: pointer;
+}
+
+@media (min-width: 586px) and (max-width: 819px) {
+  .logo {
+    display: none;
+  }
+
+  .logo-mini {
+    display: inline;
+  }
+
+  .search-field {
+    width: 120px;
+  }
+}
+
+@media (max-width: 585px) {
+  .logo-link {
+    height: 28px;
+  }
+
+  .logo {
+    display: inline;
+  }
+
+  .logo-mini, .bar-top .spacer, .volume-icon {
+    display: none;
+  }
+
+  .search-form {
+    flex: 1 1 0;
+  }
+
+  .search-field {
+    width: 0;
+    flex: 1 1 0;
+    height: 30px;
+  }
+
+  .search-button {
+    height: 30px;
+    width: 30px;
+  }
+
+  .bar-top {
+    padding: 5px;
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+
+  .main-nav {
+    order: 9;
+  }
 }
 
 /* styles below generated with danielstern.ca/range.css */

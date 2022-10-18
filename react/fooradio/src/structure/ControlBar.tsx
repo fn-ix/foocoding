@@ -1,6 +1,7 @@
 import './control-bar.css';
 import Button from './Button';
 import logo from '../assets/logo.svg';
+import logoMini from '../assets/logo-mini.svg';
 import sound from '../assets/volume.svg';
 import silent from '../assets/silent.svg';
 import stationPlaceholder from '../assets/station.svg';
@@ -54,7 +55,7 @@ export default function ControlBar(props: ControlBarInt) {
     const currentMain = (path.slice(0, 8) === '/library') ? 'library' : 'explore';
     return (
       <div className='control-bar bar-top'>
-        <a href="/" className='logo-link'><img className='logo' src={logo} alt='logo' /></a>
+        <a href="/" className='logo-link'><img className='logo' src={logo} alt='Logo' /><img className='logo-mini' src={logoMini} alt='Logo' /></a>
         <div className='spacer' />
         <nav className='main-nav'>
           <Button name='explore' type='main' current={currentMain} />

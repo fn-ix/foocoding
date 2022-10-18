@@ -239,3 +239,36 @@
 .library-card-button img {
   width: 60%;
 }
+
+@media (min-width: 586px) and (max-width: 819px) {
+  .explore-station-card {
+    flex: 0 0 100%;
+  }
+
+  .filter-station-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 585px) {
+  .explore-station-card {
+    flex: 0 0 100%;
+  }
+
+  .filter-station-card {
+    flex: 0 0 100%;
+  }
+
+  .library-station-card {
+    flex: 0 0 100px;
+    height: 100px;
+  }
+
+  .library-station-logo {
+    width: 70%;
+  }
+
+  .library-station-card p {
+    font-size: 0.8rem;
+  }
+}

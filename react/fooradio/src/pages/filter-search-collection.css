@@ -17,6 +17,12 @@
   overflow-y: scroll;
 }
 
+@media (max-width: 585px) {
+  .filter-section, .search-section, .collection-section {
+    max-height: calc(100vh - 137px);
+  }
+}
+
 .filter-title, .search-title, .collection-title {
   background-color: var(--section-border-color);
   height: fit-content;

@@ -20,6 +20,12 @@
   overflow-y: scroll;
 }
 
+@media (max-width: 585px) {
+  .explore-home-section {
+    max-height: calc(100vh - 137px);
+  }
+}
+
 .explore-section-title {
   background-color: var(--section-border-color);
   height: fit-content;
