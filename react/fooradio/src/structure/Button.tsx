@@ -45,7 +45,7 @@ export default function Button(props: ButtonInt) {
       return (
         <Link to={'/' + props.name} className={`${props.type}-link`}>
           <button className={`${props.type}-button ${(props.name === props.current) ? 'active' : 'inactive'}-button`} name={props.name}>
-            {props.name.toUpperCase()}
+            <p>{props.name.toUpperCase()}</p>
           </button>
         </Link>
       );

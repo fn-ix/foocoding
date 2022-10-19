@@ -12,7 +12,7 @@ export default function Sidebar() {
       <Button name='countries' type='filter-top' current={currentPage} />
       <Button name='languages' type='filter-top' current={currentPage} />
       <Button name='tags' type='filter-top' current={currentPage} />
-      <div className='spacer' />
+      <div className='sidebar-spacer' />
       <Button name='reload' type='filter-bottom' />
       <Button name='home' type='filter-bottom' current={currentPage} />
     </nav>

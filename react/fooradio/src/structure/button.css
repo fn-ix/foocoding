@@ -25,7 +25,6 @@
 
 .filter-top-button {
   width: 100%;
-  writing-mode: vertical-rl;
   font-family: 'UniversExtra';
   border: 1px solid var(--text-color);
   color: var(--text-color);
@@ -33,6 +32,13 @@
   padding: 10px 0;
   transition: all ease 0.1s;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-top-button p {
+  writing-mode: vertical-rl;
 }
 
 .filter-bottom-button {
@@ -80,6 +86,7 @@
 
 .filter-top-link, .filter-bottom-link {
   width: 70%;
+  text-decoration: none;
 }
 
 /* shared pseudoclasses */

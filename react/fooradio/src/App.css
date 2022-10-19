@@ -35,3 +35,17 @@
 audio {
   display: none;
 }
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #273a3f;
+  border: 2px solid #9ba69f;
+  border-radius: 0px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #9ba69f;
+}

@@ -23,6 +23,7 @@
 
 .search-form {
   height: 100%;
+  width: 183px;
   display: flex;
   align-items: center;
 }
@@ -68,8 +69,14 @@
   aspect-ratio: 1/1;
 }
 
-.spacer {
-  flex: 1;
+.control-spacer {
+  flex: 1 1 0;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .volume-icon {
@@ -89,6 +96,10 @@
   .search-field {
     width: 120px;
   }
+
+  .search-form {
+    width: 150px;
+  }
 }
 
 @media (max-width: 585px) {
@@ -100,12 +111,12 @@
     display: inline;
   }
 
-  .logo-mini, .bar-top .spacer, .volume-icon {
+  .logo-mini, .bar-top .control-spacer, .volume-icon {
     display: none;
   }
 
   .search-form {
-    flex: 1 1 0;
+    flex: 2 1 0;
   }
 
   .search-field {
@@ -163,7 +174,8 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #367ebd;
+  background: repeating-linear-gradient(to top,
+      transparent, transparent 1px, var(--text-color) 1px, var(--text-color) 2px);
 }
 
 input[type=range]::-moz-range-track {
@@ -195,7 +207,8 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: #2a6495;
+  background: repeating-linear-gradient(to top,
+      transparent, transparent 1px, var(--text-color) 1px, var(--text-color) 2px);
   border: 1.4px solid var(--text-color);
 }
 
@@ -222,7 +235,8 @@ input[type=range]:focus::-ms-fill-lower {
 }
 
 input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
+  background: repeating-linear-gradient(to top,
+      transparent, transparent 1px, var(--text-color) 1px, var(--text-color) 2px);
 }
 
 /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out

@@ -56,12 +56,12 @@ export default function ControlBar(props: ControlBarInt) {
     return (
       <div className='control-bar bar-top'>
         <a href="/" className='logo-link'><img className='logo' src={logo} alt='Logo' /><img className='logo-mini' src={logoMini} alt='Logo' /></a>
-        <div className='spacer' />
+        <div className='control-spacer' />
         <nav className='main-nav'>
           <Button name='explore' type='main' current={currentMain} />
           <Button name='library' type='main' current={currentMain} />
         </nav>
-        <div className='spacer' />
+        <div className='control-spacer' />
         <form className='search-form' onSubmit={handleSubmit}>
           <input type='text' placeholder='Search by name...' name='search' className='search-field' ref={input} />
           <Button type='search' name='search' />
@@ -77,8 +77,8 @@ export default function ControlBar(props: ControlBarInt) {
           <p>{context.station.name}</p>
           <p>{context.station.codec + ' ' + context.station.bitrate + ' kbps'}</p>
         </div>
-        <div className='spacer' />
-        <div>
+        <div className='control-spacer' />
+        <div className='volume-control'>
           <img src={volumeIcon} alt='Volume slider' className='volume-icon' onClick={handleClick} /> <input type='range' onChange={handleChange} value={initialRender ? '100' : undefined} />
         </div>
       </div>
