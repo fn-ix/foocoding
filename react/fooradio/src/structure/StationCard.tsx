@@ -42,11 +42,19 @@ export default function StationCard(props: StationCardInt) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [collectionControls, setCollectionControls] = useState(false);
   const [collections, setCollections] = useState<Array<string>>();
+  const [imageError, setImageError] = useState(false);
 
   const navigate = useNavigate();
 
   function handleClick() {
     context.changeStation({ name: props.name, url: props.url, icon: props.logo, bitrate: props.bitrate, codec: props.codec, stationuuid: props.stationuuid });
+  }
+
+  function handleImageError(event: React.SyntheticEvent<HTMLImageElement>) {
+    if (!imageError) {
+      setImageError(true);
+      event.currentTarget.src = stationPlaceholder;
+    }
   }
 
   function handleFavorite() {
@@ -169,7 +177,7 @@ export default function StationCard(props: StationCardInt) {
     return (
       <div className={`station-card ${props.type}-station-card`}>
         <div className='card-content' onClick={handleClick}>
-          <img src={props.logo ? props.logo : stationPlaceholder} alt='Station logo' />
+          <img src={props.logo ? props.logo : stationPlaceholder} alt='Station logo' onError={handleImageError} />
           <p>{props.name}</p>
           <p>{props.location}</p>
           <p>{props.tags.replaceAll(',', ', ')}</p>
@@ -204,7 +212,7 @@ export default function StationCard(props: StationCardInt) {
           <img src={cross} alt='Remove station' />
         </button>
         <div className='library-station-card-content' onClick={handleClick}>
-          <img src={props.logo ? props.logo : stationPlaceholder} alt='Station logo' className='library-station-logo' />
+          <img src={props.logo ? props.logo : stationPlaceholder} alt='Station logo' className='library-station-logo' onError={handleImageError} />
           <p>{props.name}</p>
         </div>
       </div>

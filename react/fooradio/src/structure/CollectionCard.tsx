@@ -18,6 +18,14 @@ interface StationsInt {
 
 export default function CollectionCard(props: CollectionCardType) {
   const [stationImages, setStationImages] = useState<Array<[string, string]>>();
+  const [imageError, setImageError] = useState(false);
+
+  function handleImageError(event: React.SyntheticEvent<HTMLImageElement>) {
+    if (!imageError) {
+      setImageError(true);
+      event.currentTarget.src = placeholder;
+    }
+  }
 
   useEffect(() => {
     const storeString = localStorage.getItem('collections');
@@ -38,7 +46,7 @@ export default function CollectionCard(props: CollectionCardType) {
   return (
     <Link to={'/library/' + props.name.replace(' ', '%20').replace('#', '%23')} className='collection-link'>
       <div className='collection-card-logos'>
-        {stationImages && stationImages.slice(0, 4).map((station) => <img key={station[0]} src={station[1]} alt='Station logo' className='collection-card-logo' />)}
+        {stationImages && stationImages.slice(0, 4).map((station) => <img key={station[0]} src={station[1]} alt='Station logo' className='collection-card-logo' onError={handleImageError} />)}
       </div>
       <p>{props.name}</p>
     </Link>
