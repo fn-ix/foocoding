@@ -121,13 +121,15 @@ export default function StationCard(props: StationCardInt) {
       } else {
         const collectionArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] === event.currentTarget.id);
 
-        collectionArray[0][1].push({ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec });
+        if (collectionArray[0][1].filter((station: StationsInt) => station.stationuuid === props.stationuuid).length < 1) {
+          collectionArray[0][1].push({ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec });
 
-        const newStoreArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] !== event.currentTarget.id);
+          const newStoreArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] !== event.currentTarget.id);
 
-        newStoreArray.unshift(collectionArray[0]);
+          newStoreArray.unshift(collectionArray[0]);
 
-        localStorage.setItem('collections', JSON.stringify(newStoreArray));
+          localStorage.setItem('collections', JSON.stringify(newStoreArray));
+        }
       }
     } else {
       const storeArray = ([['New collection', [{ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec }]]]);

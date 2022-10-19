@@ -38,6 +38,7 @@
 
 .collection-title {
   font-family: 'Univers';
+  height: 1.8rem;
 }
 
 .collection-title .title-text {
@@ -47,8 +48,9 @@
 
 .collection-form {
   display: flex;
-  height: 1.2rem;
+  height: 100%;
   align-items: center;
+  overflow-y: hidden;
 }
 
 .collection-input {
