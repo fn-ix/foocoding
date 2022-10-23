@@ -38,7 +38,7 @@ export default function App() {
   const audio = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    if (audio.current !== null && audio.current.src) {
+    if (audio.current && audio.current.src) {
       audio.current.play();
       station && setPlaying(true);
     }

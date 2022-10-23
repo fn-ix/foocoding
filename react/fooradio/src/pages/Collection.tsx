@@ -27,7 +27,7 @@ export default function Collection() {
     event.preventDefault();
 
     const storeString = localStorage.getItem('collections');
-    if (storeString !== null) {
+    if (storeString) {
       const storeArray = JSON.parse(storeString);
 
       const collectionArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] === id);
@@ -47,7 +47,7 @@ export default function Collection() {
   useEffect(() => {
     const storeString = localStorage.getItem('collections');
 
-    if (storeString !== null) {
+    if (storeString) {
       const storeArray = JSON.parse(storeString);
 
       const collectionArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] === id);

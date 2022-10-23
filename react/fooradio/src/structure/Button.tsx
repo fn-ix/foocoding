@@ -21,7 +21,7 @@ export default function Button(props: ButtonInt) {
 
   function handlePlay() {
     const audio = context.audio.current;
-    if (audio !== null && audio.src) {
+    if (audio && audio.src) {
       if (audio.paused || audio.ended) {
         audio.play();
         context.changePlaying(true);

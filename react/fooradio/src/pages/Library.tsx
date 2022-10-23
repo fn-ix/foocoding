@@ -32,13 +32,13 @@ function Section(props: SectionInt) {
 
   useEffect(() => {
     const localData = localStorage.getItem('favorites');
-    if (localData !== null) setFavorites(JSON.parse(localData));
+    if (localData) setFavorites(JSON.parse(localData));
   }, [removeToggle]);
 
   useEffect(() => {
     const storeString = localStorage.getItem('collections');
 
-    if (storeString !== null) {
+    if (storeString) {
       const storeArr = JSON.parse(storeString);
       const storeNames = storeArr.map((collection: [string, StationsInt]) => collection[0]);
       setCollectionNames(storeNames);

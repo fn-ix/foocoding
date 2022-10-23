@@ -60,7 +60,7 @@ export default function StationCard(props: StationCardInt) {
   function handleFavorite() {
     const storeString = localStorage.getItem('favorites');
 
-    if (storeString !== null) {
+    if (storeString) {
       const storeArray = JSON.parse(storeString);
 
       const overlap = storeArray.filter((station: StationsInt) => station.stationuuid === props.stationuuid);
@@ -83,14 +83,14 @@ export default function StationCard(props: StationCardInt) {
   function handleRemove() {
     if (props.type === 'library') {
       const storeString = localStorage.getItem('favorites');
-      if (storeString !== null) {
+      if (storeString) {
         const storeArray = JSON.parse(storeString);
         localStorage.setItem('favorites', JSON.stringify(storeArray.filter((station: StationsInt) => station.stationuuid !== props.stationuuid)));
         props.removeToggle && props.removeToggle();
       }
     } else {
       const storeString = localStorage.getItem('collections');
-      if (storeString !== null) {
+      if (storeString) {
         const storeArray = JSON.parse(storeString);
 
         const collectionArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] === props.id);
@@ -115,7 +115,7 @@ export default function StationCard(props: StationCardInt) {
   function handleCollection(event: React.MouseEvent<HTMLLIElement>) {
     const storeString = localStorage.getItem('collections');
 
-    if (storeString !== null) {
+    if (storeString) {
       const storeArray = JSON.parse(storeString);
 
       if (event.currentTarget.className === 'create-collection') {
@@ -148,7 +148,7 @@ export default function StationCard(props: StationCardInt) {
 
   useEffect(() => {
     const storeString = localStorage.getItem('favorites');
-    if (storeString !== null) {
+    if (storeString) {
       const storeArray = JSON.parse(storeString);
 
       const overlap = storeArray.filter((station: StationsInt) => station.stationuuid === props.stationuuid);
@@ -159,7 +159,7 @@ export default function StationCard(props: StationCardInt) {
 
   useEffect(() => {
     const storeString = localStorage.getItem('collections');
-    if (storeString !== null) {
+    if (storeString) {
       const storeArray = JSON.parse(storeString);
       setCollections(storeArray.map((collection: [string, StationsInt]) => collection[0]));
     }

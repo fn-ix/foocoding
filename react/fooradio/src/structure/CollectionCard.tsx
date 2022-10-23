@@ -30,7 +30,7 @@ export default function CollectionCard(props: CollectionCardType) {
   useEffect(() => {
     const storeString = localStorage.getItem('collections');
 
-    if (storeString !== null) {
+    if (storeString) {
       const storeArr = JSON.parse(storeString);
 
       const collectionArr = storeArr.filter((collection: [string, StationsInt]) => collection[0] === props.name);
