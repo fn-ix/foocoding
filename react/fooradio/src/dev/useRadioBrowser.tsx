@@ -61,7 +61,14 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
             break;
           case 'countries':
             data = await fetch(linkBase + '/countries?hidebroken=true', { headers: headers });
-            setFilters(await data.json());
+            const countries = await data.json();
+            const uniqueCountries = [] as Array<FiltersInt>;
+            countries.forEach((country: FiltersInt) => {
+              if (uniqueCountries.filter((uniqueCountry) => uniqueCountry.name === country.name).length === 0) {
+                uniqueCountries.push(country);
+              }
+            });
+            setFilters(uniqueCountries);
             setStations(undefined);
             setAmount(initialAmount);
             setLoading(false);
