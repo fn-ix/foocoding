@@ -21,9 +21,9 @@ export default function Filter(props: FilterInt) {
 
   useEffect(() => {
     if (sect.current !== null) {
-      if (sect.current.scrollHeight === sect.current.clientHeight) setAmount((prev) => prev + 28);
+      if (sect.current.scrollHeight === sect.current.clientHeight && amount < remoteAmount) setAmount((prev) => prev + 28);
     }
-  }, [stations, setAmount]);
+  }, [stations, setAmount, amount, remoteAmount]);
 
   function handleScroll(event: React.UIEvent<HTMLElement>) {
     if (amount < remoteAmount) {
