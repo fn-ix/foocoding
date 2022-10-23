@@ -63,7 +63,7 @@ export default function ControlBar(props: ControlBarInt) {
         </nav>
         <div className='control-spacer' />
         <form className='search-form' onSubmit={handleSubmit}>
-          <input type='text' placeholder='Search by name...' name='search' className='search-field' ref={input} />
+          <input type='text' placeholder={path.slice(0, 7) === '/search' ? path.slice(8).replaceAll('%20', ' ').replaceAll('%23', '#') : 'Search by name...'} name='search' className='search-field' ref={input} />
           <Button type='search' name='search' />
         </form>
       </div>
