@@ -2,6 +2,7 @@ import './explore.css';
 import StationCard from '../structure/StationCard';
 import loader from '../assets/loading.svg';
 import useRadioBrowser from '../dev/useRadioBrowser';
+import { useEffect, useRef } from 'react';
 
 interface SectionInt {
   type: 'most-popular' | 'recently-played';
@@ -19,8 +20,16 @@ function Section(props: SectionInt) {
     }
   }
 
+  const sect = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (sect.current !== null) {
+      if (sect.current.scrollHeight === sect.current.clientHeight) setAmount((prev) => prev + 14);
+    }
+  }, [stations, setAmount]);
+
   return (
-    <section className='explore-home-section' id={`section-${props.type}`} onScroll={handleScroll}>
+    <section className='explore-home-section' id={`section-${props.type}`} onScroll={handleScroll} ref={sect}>
       <div className='explore-section-title'>{title}</div>
       {error && <div>Something went wrong ...</div>}
       {stations && stations.map((station) => (

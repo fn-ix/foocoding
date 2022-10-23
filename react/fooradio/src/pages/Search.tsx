@@ -3,24 +3,35 @@ import StationCard from '../structure/StationCard';
 import loader from '../assets/loading.svg';
 import useRadioBrowser from '../dev/useRadioBrowser';
 import { useParams } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
 export default function Search() {
   const { id } = useParams();
 
   const title = ('Search results for: ' + id).toUpperCase();
 
-  const { stations, setAmount, loading, error } = useRadioBrowser('search', 28, id);
+  const { stations, amount, setAmount, loading, error } = useRadioBrowser('search', 28, id);
+
+  const sect = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (sect.current !== null && stations?.length === amount) {
+      if (sect.current.scrollHeight === sect.current.clientHeight) setAmount((prev) => prev + 28);
+    }
+  }, [stations, setAmount, amount]);
 
   function handleScroll(event: React.UIEvent<HTMLElement>) {
-    const bottom = event.currentTarget.scrollHeight - event.currentTarget.scrollTop === event.currentTarget.clientHeight;
-    if (bottom) {
-      setAmount((prev) => prev + 28);
+    if (stations?.length === amount) {
+      const bottom = event.currentTarget.scrollHeight - event.currentTarget.scrollTop === event.currentTarget.clientHeight;
+      if (bottom) {
+        setAmount((prev) => prev + 28);
+      }
     }
   }
 
   return (
     <main className='search'>
-      <section className='search-section' onScroll={handleScroll}>
+      <section className='search-section' onScroll={handleScroll} ref={sect}>
         <div className='search-title'>{title}</div>
         {error && <div>Something went wrong ...</div>}
         {stations && stations.map((station) => (

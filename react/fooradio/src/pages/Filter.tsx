@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import StationCard from '../structure/StationCard';
 import useRadioBrowser from '../dev/useRadioBrowser';
 import loader from '../assets/loading.svg';
+import { useRef, useEffect } from 'react';
 
 interface FilterInt {
   type: 'countries' | 'languages' | 'tags' | 'countries-stations' | 'languages-stations' | 'tags-stations';
@@ -15,6 +16,14 @@ export default function Filter(props: FilterInt) {
   const { id } = useParams();
 
   const { stations, filters, setAmount, loading, error, amount, remoteAmount } = useRadioBrowser(props.type, 28, id);
+
+  const sect = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (sect.current !== null) {
+      if (sect.current.scrollHeight === sect.current.clientHeight) setAmount((prev) => prev + 28);
+    }
+  }, [stations, setAmount]);
 
   function handleScroll(event: React.UIEvent<HTMLElement>) {
     if (amount < remoteAmount) {
@@ -41,7 +50,7 @@ export default function Filter(props: FilterInt) {
   } else {
     return (
       <main className='filter'>
-        <section className='filter-section' onScroll={handleScroll}>
+        <section className='filter-section' onScroll={handleScroll} ref={sect}>
           <div className='filter-title'>{id?.toUpperCase()}</div>
           {error && <div>Something went wrong ...</div>}
           {stations && stations.map((station) => (
