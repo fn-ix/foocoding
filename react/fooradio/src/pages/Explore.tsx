@@ -23,8 +23,8 @@ function Section(props: SectionInt) {
   const sect = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (sect.current !== null) {
-      if (sect.current.scrollHeight === sect.current.clientHeight) setAmount((prev) => prev + 14);
+    if (sect.current && stations && sect.current.scrollHeight === sect.current.clientHeight) {
+      setAmount((prev) => prev + 14);
     }
   }, [stations, setAmount]);
 

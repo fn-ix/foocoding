@@ -15,8 +15,8 @@ export default function Search() {
   const sect = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (sect.current !== null && stations?.length === amount) {
-      if (sect.current.scrollHeight === sect.current.clientHeight) setAmount((prev) => prev + 28);
+    if (sect.current !== null && stations?.length === amount && sect.current.scrollHeight === sect.current.clientHeight) {
+      setAmount((prev) => prev + 28);
     }
   }, [stations, setAmount, amount]);
 
