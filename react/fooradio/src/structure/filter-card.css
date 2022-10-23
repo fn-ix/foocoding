@@ -1,5 +1,5 @@
 .filter-link {
-  flex: 0 0 calc(20% - 10px);
+  flex: 0 1 calc(20% - 10px);
   color: inherit;
   text-decoration: none;
 }
@@ -27,4 +27,10 @@
 .filter-card:active {
   background-color: var(--extra-highlight-color);
   border-color: var(--extra-highlight-color);
+}
+
+@media (min-width: 1400px) {
+  .filter-link {
+    flex: 1 1 200px;
+  }
 }

@@ -240,6 +240,12 @@
   width: 60%;
 }
 
+@media (min-width: 1400px) {
+  .explore-station-card, .filter-station-card {
+    flex: 1 1 250px;
+  }
+}
+
 @media (min-width: 586px) and (max-width: 819px) {
   .explore-station-card {
     flex: 0 0 100%;
