@@ -48,7 +48,7 @@ export default function ControlBar(props: ControlBarInt) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (input.current !== null && input.current.value !== '') navigate('/search/' + input.current.value.replace(' ', '%20').replace('#', '%23'));
+    if (input.current !== null && input.current.value !== '') navigate('/search/' + input.current.value.replaceAll(' ', '%20').replaceAll('#', '%23'));
   }
 
   if (props.position === 'top') {

@@ -47,7 +47,7 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
 
       try {
         let data;
-        const fixedId = id?.replace(' ', '%20').replace('#', '%23');
+        const fixedId = id?.replaceAll(' ', '%20').replaceAll('#', '%23');
         switch (type) {
           case 'most-popular':
             data = await fetch(linkBase + '/stations/topvote?hidebroken=true&limit=' + amount, { headers: headers });

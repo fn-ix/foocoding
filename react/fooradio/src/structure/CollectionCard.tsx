@@ -44,7 +44,7 @@ export default function CollectionCard(props: CollectionCardType) {
   }, [props.name]);
 
   return (
-    <Link to={'/library/' + props.name.replace(' ', '%20').replace('#', '%23')} className='collection-link'>
+    <Link to={'/library/' + props.name.replaceAll(' ', '%20').replaceAll('#', '%23')} className='collection-link'>
       <div className='collection-card-logos'>
         {stationImages && stationImages.slice(0, 4).map((station) => <img key={station[0]} src={station[1]} alt='Station logo' className='collection-card-logo' onError={handleImageError} />)}
       </div>

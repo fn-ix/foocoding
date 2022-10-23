@@ -19,7 +19,7 @@ interface StationsInt {
 }
 
 function Section(props: SectionInt) {
-  const title = props.type.toUpperCase().replace('-', ' ');
+  const title = props.type.toUpperCase();
 
   const [favorites, setFavorites] = useState<Array<StationsInt>>();
   const [removeToggle, setRemoveToggle] = useState(false);

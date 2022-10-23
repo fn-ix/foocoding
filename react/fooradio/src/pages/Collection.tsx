@@ -40,7 +40,7 @@ export default function Collection() {
       localStorage.setItem('collections', JSON.stringify(collectionsArray));
 
       setRenaming(false);
-      navigate('/library/' + (event.currentTarget[0] as HTMLInputElement).value.replace(' ', '%20').replace('#', '%23'));
+      navigate('/library/' + (event.currentTarget[0] as HTMLInputElement).value.replaceAll(' ', '%20').replaceAll('#', '%23'));
     }
   }
 
