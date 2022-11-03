@@ -32,11 +32,9 @@
 
 ```select Name from country order by SurfaceArea desc limit 10;```
 
-9. What are the top 10 most populated cities?
+9. What are the top 10 most populated cities and the corresponding countries?
 
-Only cities: `select Name from city order by Population desc limit 10;`
-
-Cities & respective countries: `select city.Name, country.Name from city inner join country on city.CountryCode = country.Code order by city.Population desc limit 10;`
+```select city.Name, country.Name from city inner join country on city.CountryCode = country.Code order by city.Population desc limit 10;```
 
 10. What is the population of the world?
 
