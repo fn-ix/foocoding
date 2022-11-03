@@ -32,10 +32,6 @@
   gap: 10px;
 }
 
-audio {
-  display: none;
-}
-
 *::-webkit-scrollbar {
   width: 6px;
 }

@@ -35,10 +35,11 @@ export default function App() {
   const [refresh, doRefresh] = useState(false);
   const [station, setStation] = useState<StationInt>({ name: 'No station', bitrate: 0, codec: '' });
 
-  const audio = useRef<HTMLAudioElement>(null);
+  const audio = useRef(new Audio());
 
   useEffect(() => {
-    if (audio.current && audio.current.src) {
+    if (audio && station.url) {
+      audio.current.src = station.url;
       audio.current.play();
       station && setPlaying(true);
     }
@@ -55,7 +56,6 @@ export default function App() {
         changeStation: (stat: StationInt) => setStation(stat),
         audio: audio
       }}>
-        <audio src={station.url} ref={audio} />
         <ControlBar position='top' />
         <div className='view'>
           <Sidebar />
