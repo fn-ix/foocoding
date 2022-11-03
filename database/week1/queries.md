@@ -14,7 +14,7 @@
 
 4. What's the name of all the countries on the continent Europe?
 
-```select Name from country where Continent like 'Europe';```
+```select Name from country where Continent = 'Europe';```
 
 5. List all the countries in the descending order of their surface areas.
 
@@ -26,7 +26,7 @@
 
 7. What is the population of Rotterdam?
 
-```select Population from city where Name like 'Rotterdam';```
+```select Population from city where Name = 'Rotterdam';```
 
 8. What are the top 10 countries by Surface Area?
 
@@ -34,7 +34,8 @@
 
 9. What are the top 10 most populated cities?
 
-```select Name from city order by Population desc limit 10;```
+Only cities: `select Name from city order by Population desc limit 10;`
+Cities & respective countries: `select city.Name, country.Name from city inner join country on city.CountryCode = country.Code order by city.Population desc limit 10;`
 
 10. What is the population of the world?
 
