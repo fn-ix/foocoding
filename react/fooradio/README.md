@@ -1,5 +1,4 @@
 # FooRadio
----
 
 A [radio-browser](https://www.radio-browser.info/) frontend built using React and TypeScript.
 [Live version](https://fooradio.onrender.com/)
