@@ -19,7 +19,7 @@ interface StationCardInt {
   url: string,
   bitrate: number,
   codec: string,
-  type: 'explore' | 'library' | 'filter' | 'collection',
+  type: 'explore' | 'library' | 'category' | 'collection',
   removeToggle?: Function,
   id?: string,
 }
@@ -173,7 +173,7 @@ export default function StationCard(props: StationCardInt) {
     }
   }, [context.playingState, props.stationuuid, context.station.stationuuid]);
 
-  if (props.type === 'explore' || props.type === 'filter') {
+  if (props.type === 'explore' || props.type === 'category') {
     return (
       <div className={`station-card ${props.type}-station-card`}>
         <div className='card-content' onClick={handleClick}>

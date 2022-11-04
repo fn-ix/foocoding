@@ -9,7 +9,7 @@ import { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 interface ButtonInt {
-  type: 'main' | 'filter-top' | 'filter-bottom' | 'player' | 'search',
+  type: 'main' | 'category-top' | 'category-bottom' | 'player' | 'search',
   name: string,
   current?: string,
   station?: any,
@@ -41,7 +41,7 @@ export default function Button(props: ButtonInt) {
           </button>
         </Link>
       );
-    case 'filter-top':
+    case 'category-top':
       return (
         <Link to={'/' + props.name} className={`${props.type}-link`}>
           <button className={`${props.type}-button ${(props.name === props.current) ? 'active' : 'inactive'}-button`} name={props.name}>
@@ -49,7 +49,7 @@ export default function Button(props: ButtonInt) {
           </button>
         </Link>
       );
-    case 'filter-bottom':
+    case 'category-bottom':
       if (props.name === 'reload') {
         return (
           <div className={`${props.type}-link`}>

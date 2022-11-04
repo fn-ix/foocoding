@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import './filter-search-collection.css';
+import './category-collection-search.css';
 import StationCard from '../structure/StationCard';
 import cross from '../assets/cross.svg';
 

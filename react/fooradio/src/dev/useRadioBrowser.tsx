@@ -13,7 +13,7 @@ interface StationsInt {
   codec: string,
 }
 
-interface FiltersInt {
+interface CategoryInt {
   name: string,
   stationcount: number,
 }
@@ -24,7 +24,7 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
   const [stations, setStations] = useState<Array<StationsInt>>();
   const [amount, setAmount] = useState<number>(initialAmount);
   const [remoteAmount, setRemoteAmount] = useState(0);
-  const [filters, setFilters] = useState<Array<FiltersInt>>();
+  const [categories, setCategories] = useState<Array<CategoryInt>>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -62,27 +62,27 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
           case 'countries':
             data = await fetch(linkBase + '/countries?hidebroken=true', { headers: headers });
             const countries = await data.json();
-            const uniqueCountries = [] as Array<FiltersInt>;
-            countries.forEach((country: FiltersInt) => {
+            const uniqueCountries = [] as Array<CategoryInt>;
+            countries.forEach((country: CategoryInt) => {
               if (uniqueCountries.filter((uniqueCountry) => uniqueCountry.name === country.name).length === 0) {
                 uniqueCountries.push(country);
               }
             });
-            setFilters(uniqueCountries);
+            setCategories(uniqueCountries);
             setStations(undefined);
             setAmount(initialAmount);
             setLoading(false);
             break;
           case 'languages':
             data = await fetch(linkBase + '/languages?hidebroken=true', { headers: headers });
-            setFilters(await data.json());
+            setCategories(await data.json());
             setStations(undefined);
             setAmount(initialAmount);
             setLoading(false);
             break;
           case 'tags':
             data = await fetch(linkBase + '/tags?hidebroken=true', { headers: headers });
-            setFilters(await data.json());
+            setCategories(await data.json());
             setStations(undefined);
             setAmount(initialAmount);
             setLoading(false);
@@ -129,11 +129,11 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
 
     if (type !== 'most-popular' && type !== 'recently-played' && !type.includes('stations')) {
       return () => {
-        setFilters(undefined);
+        setCategories(undefined);
       };
     }
 
   }, [type, amount, context.refresh, id, initialAmount]);
 
-  return { stations, filters, loading, error, remoteAmount, amount, setAmount };
+  return { stations, categories, loading, error, remoteAmount, amount, setAmount };
 }

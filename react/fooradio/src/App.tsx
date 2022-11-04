@@ -7,7 +7,7 @@ import Search from './pages/Search';
 import Collection from './pages/Collection';
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState, useRef, createContext } from 'react';
-import Filter from './pages/Filter';
+import Category from './pages/Category';
 
 interface StationInt {
   name: string,
@@ -63,12 +63,12 @@ export default function App() {
             <Route path='/' element={<Explore />} />
             <Route path='/library' element={<Library />} />
             <Route path='/library/:id' element={<Collection />} />
-            <Route path='/countries' element={<Filter type='countries' />} />
-            <Route path='/languages' element={<Filter type='languages' />} />
-            <Route path='/tags' element={<Filter type='tags' />} />
-            <Route path='/countries/:id' element={<Filter type='countries-stations' />} />
-            <Route path='/languages/:id' element={<Filter type='languages-stations' />} />
-            <Route path='/tags/:id' element={<Filter type='tags-stations' />} />
+            <Route path='/countries' element={<Category type='countries' />} />
+            <Route path='/languages' element={<Category type='languages' />} />
+            <Route path='/tags' element={<Category type='tags' />} />
+            <Route path='/countries/:id' element={<Category type='countries-stations' />} />
+            <Route path='/languages/:id' element={<Category type='languages-stations' />} />
+            <Route path='/tags/:id' element={<Category type='tags-stations' />} />
             <Route path='/search/:id' element={<Search />} />
           </Routes>
         </div>

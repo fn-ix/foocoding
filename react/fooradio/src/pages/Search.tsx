@@ -1,4 +1,4 @@
-import './filter-search-collection.css';
+import './category-collection-search.css';
 import StationCard from '../structure/StationCard';
 import loader from '../assets/loading.svg';
 import useRadioBrowser from '../dev/useRadioBrowser';
@@ -35,7 +35,7 @@ export default function Search() {
         <div className='search-title'>{title}</div>
         {error && <div>Something went wrong ...</div>}
         {stations && stations.map((station) => (
-          <StationCard key={station.stationuuid} stationuuid={station.stationuuid} name={station.name} location={station.country} logo={station.favicon} tags={station.tags} url={station.url_resolved} bitrate={station.bitrate} codec={station.codec} type='filter' />
+          <StationCard key={station.stationuuid} stationuuid={station.stationuuid} name={station.name} location={station.country} logo={station.favicon} tags={station.tags} url={station.url_resolved} bitrate={station.bitrate} codec={station.codec} type='category' />
         ))}
         {loading && <img src={loader} alt='Loading...' className='loader' />}
       </section>

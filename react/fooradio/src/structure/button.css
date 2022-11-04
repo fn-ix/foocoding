@@ -23,7 +23,7 @@
   cursor: pointer;
 }
 
-.filter-top-button {
+.category-top-button {
   width: 100%;
   font-family: 'UniversExtra';
   border: 1px solid var(--text-color);
@@ -37,11 +37,11 @@
   align-items: center;
 }
 
-.filter-top-button p {
+.category-top-button p {
   writing-mode: vertical-rl;
 }
 
-.filter-bottom-button {
+.category-bottom-button {
   width: 100%;
   aspect-ratio: 1 / 1;
   height: auto;
@@ -75,7 +75,7 @@
   background-color: var(--extra-highlight-color);
 }
 
-.filter-bottom-button img, .player-button img, .search-button img {
+.category-bottom-button img, .player-button img, .search-button img {
   width: 60%;
 }
 
@@ -84,17 +84,17 @@
   height: 70%;
 }
 
-.filter-top-link, .filter-bottom-link {
+.category-top-link, .category-bottom-link {
   width: 70%;
   text-decoration: none;
 }
 
 /* shared pseudoclasses */
-.main-button:hover, .filter-top-button:hover, .filter-bottom-button:hover, .player-button:hover, .card-control-button:hover, .library-card-button:hover {
+.main-button:hover, .category-top-button:hover, .category-bottom-button:hover, .player-button:hover, .card-control-button:hover, .library-card-button:hover {
   background-color: var(--main-bg-color);
 }
 
-.main-button:active, .filter-top-button:active, .filter-bottom-button:active, .active-button, .player-button:active, .card-control-button:active, .library-card-button:active {
+.main-button:active, .category-top-button:active, .category-bottom-button:active, .active-button, .player-button:active, .card-control-button:active, .library-card-button:active {
   background-color: var(--section-bg-color);
   border-color: var(--section-bg-color);
 }

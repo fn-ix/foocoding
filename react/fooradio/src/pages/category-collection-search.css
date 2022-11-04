@@ -1,8 +1,8 @@
-.filter, .search, .collection {
+.category, .search, .collection {
   flex: 1;
 }
 
-.filter-section, .search-section, .collection-section {
+.category-section, .search-section, .collection-section {
   background-color: var(--section-bg-color);
   border-left: 1.5px solid var(--section-border-color);
   border-right: 1.5px solid var(--section-border-color);
@@ -19,12 +19,12 @@
 }
 
 @media (max-width: 585px) {
-  .filter-section, .search-section, .collection-section {
+  .category-section, .search-section, .collection-section {
     max-height: calc(100vh - 137px);
   }
 }
 
-.filter-title, .search-title, .collection-title {
+.category-title, .search-title, .collection-title {
   background-color: var(--section-border-color);
   height: fit-content;
   position: sticky;

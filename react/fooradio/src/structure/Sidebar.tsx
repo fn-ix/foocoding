@@ -9,12 +9,12 @@ export default function Sidebar() {
 
   return (
     <nav className='sidebar'>
-      <Button name='countries' type='filter-top' current={currentPage} />
-      <Button name='languages' type='filter-top' current={currentPage} />
-      <Button name='tags' type='filter-top' current={currentPage} />
+      <Button name='countries' type='category-top' current={currentPage} />
+      <Button name='languages' type='category-top' current={currentPage} />
+      <Button name='tags' type='category-top' current={currentPage} />
       <div className='sidebar-spacer' />
-      <Button name='reload' type='filter-bottom' />
-      <Button name='home' type='filter-bottom' current={currentPage} />
+      <Button name='reload' type='category-bottom' />
+      <Button name='home' type='category-bottom' current={currentPage} />
     </nav>
   );
 }
