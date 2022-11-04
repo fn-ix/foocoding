@@ -38,7 +38,7 @@ export default function Category(props: CategoryInt) {
           <div className='category-title'>{title}</div>
           {error && <div>Something went wrong ...</div>}
           {categories && categories.map((category) => (
-            <CategoryCard key={category.name} name={category.name} count={category.stationcount} category={props.type} />
+            <CategoryCard key={category.name} name={category.name} stationcount={category.stationcount} category={props.type} />
           ))}
           {loading && <img src={loader} alt='Loading...' className='loader' />}
         </section>

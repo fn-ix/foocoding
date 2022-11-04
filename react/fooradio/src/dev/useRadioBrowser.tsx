@@ -1,22 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from '../App';
 import { countryCodes } from './countryCodes';
-
-interface StationInt {
-  name: string,
-  country: string,
-  tags: string,
-  favicon: string,
-  stationuuid: string,
-  url_resolved: string,
-  bitrate: number,
-  codec: string,
-}
-
-interface CategoryInt {
-  name: string,
-  stationcount: number,
-}
+import { StationInt, CategoryCardInt } from './interfaces';
 
 export default function useRadioBrowser(type: string, initialAmount: number, id?: string) {
   const context = useContext(GlobalContext);
@@ -24,7 +9,7 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
   const [stations, setStations] = useState<Array<StationInt>>();
   const [amount, setAmount] = useState<number>(initialAmount);
   const [remoteAmount, setRemoteAmount] = useState(0);
-  const [categories, setCategories] = useState<Array<CategoryInt>>();
+  const [categories, setCategories] = useState<Array<CategoryCardInt>>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -62,8 +47,8 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
           case 'countries':
             data = await fetch(linkBase + '/countries?hidebroken=true', { headers: headers });
             const countries = await data.json();
-            const uniqueCountries = [] as Array<CategoryInt>;
-            countries.forEach((country: CategoryInt) => {
+            const uniqueCountries = [] as Array<CategoryCardInt>;
+            countries.forEach((country: CategoryCardInt) => {
               if (uniqueCountries.filter((uniqueCountry) => uniqueCountry.name === country.name).length === 0) {
                 uniqueCountries.push(country);
               }

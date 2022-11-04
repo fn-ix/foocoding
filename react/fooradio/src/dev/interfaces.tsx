@@ -47,8 +47,8 @@ export interface LibraryInt {
 
 export interface CategoryCardInt {
   name: string,
-  count: number,
-  category: string,
+  stationcount: number,
+  category?: string,
 }
 
 export interface ControlBarInt {
