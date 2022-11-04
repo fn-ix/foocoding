@@ -51,7 +51,7 @@ export default function Category(props: CategoryInt) {
           <div className='category-title'>{id?.toUpperCase()}</div>
           {error && <div>Something went wrong ...</div>}
           {stations && stations.map((station) => (
-            <StationCard key={station.stationuuid} stationuuid={station.stationuuid} name={station.name} location={station.country} logo={station.favicon} tags={station.tags} url={station.url_resolved} bitrate={station.bitrate} codec={station.codec} type='category' />
+            <StationCard key={station.stationuuid} stationuuid={station.stationuuid} name={station.name} country={station.country} favicon={station.favicon} tags={station.tags} url_resolved={station.url_resolved} bitrate={station.bitrate} codec={station.codec} type='category' />
           ))}
           {loading && <img src={loader} alt='Loading...' className='loader' />}
         </section>

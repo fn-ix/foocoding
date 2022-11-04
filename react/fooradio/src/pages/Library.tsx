@@ -36,7 +36,7 @@ function Section(props: LibraryInt) {
       <section className={'library-section section-favorites'}>
         <div className='library-section-title'>{title}</div>
         {(favorites && favorites.length >= 1) ? favorites.map((station) => (
-          <StationCard key={station.stationuuid} stationuuid={station.stationuuid} name={station.name} location={station.country} logo={station.favicon} tags={station.tags} url={station.url_resolved} bitrate={station.bitrate} codec={station.codec} type='library' removeToggle={customToggle} />
+          <StationCard key={station.stationuuid} stationuuid={station.stationuuid} name={station.name} country={station.country} favicon={station.favicon} tags={station.tags} url_resolved={station.url_resolved} bitrate={station.bitrate} codec={station.codec} type='library' removeToggle={customToggle} />
         )) : <p>Add some favorites...</p>}
       </section>
     );

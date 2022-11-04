@@ -23,7 +23,7 @@ export default function StationCard(props: StationCardInt) {
   const navigate = useNavigate();
 
   function handleClick() {
-    context.setStation({ name: props.name, url_resolved: props.url, favicon: props.logo, bitrate: props.bitrate, codec: props.codec, stationuuid: props.stationuuid });
+    context.setStation({ name: props.name, url_resolved: props.url_resolved, favicon: props.favicon, bitrate: props.bitrate, codec: props.codec, stationuuid: props.stationuuid });
   }
 
   function handleImageError(event: React.SyntheticEvent<HTMLImageElement>) {
@@ -45,12 +45,12 @@ export default function StationCard(props: StationCardInt) {
         localStorage.setItem('favorites', JSON.stringify(storeArray.filter((station: StationInt) => station.stationuuid !== props.stationuuid)));
         setFavorite(false);
       } else {
-        storeArray.push({ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec });
+        storeArray.push({ name: props.name, stationuuid: props.stationuuid, country: props.country, favicon: props.favicon, tags: props.tags, url_resolved: props.url_resolved, bitrate: props.bitrate, codec: props.codec });
         localStorage.setItem('favorites', JSON.stringify(storeArray));
         setFavorite(true);
       }
     } else {
-      const storeArray = [{ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec }];
+      const storeArray = [{ name: props.name, stationuuid: props.stationuuid, country: props.country, favicon: props.favicon, tags: props.tags, url_resolved: props.url_resolved, bitrate: props.bitrate, codec: props.codec }];
       localStorage.setItem('favorites', JSON.stringify(storeArray));
       setFavorite(true);
     }
@@ -100,13 +100,13 @@ export default function StationCard(props: StationCardInt) {
         let collectionName;
         (newCollections.length > 0) ? collectionName = `New collection #${newCollections.length + 1}` : collectionName = 'New collection';
 
-        storeArray.unshift([collectionName, [{ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec }]]);
+        storeArray.unshift([collectionName, [{ name: props.name, stationuuid: props.stationuuid, country: props.country, favicon: props.favicon, tags: props.tags, url_resolved: props.url_resolved, bitrate: props.bitrate, codec: props.codec }]]);
         localStorage.setItem('collections', JSON.stringify(storeArray));
       } else {
         const collectionArray = storeArray.filter((collection: [string, StationInt]) => collection[0] === event.currentTarget.id);
 
         if (collectionArray[0][1].filter((station: StationInt) => station.stationuuid === props.stationuuid).length < 1) {
-          collectionArray[0][1].push({ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec });
+          collectionArray[0][1].push({ name: props.name, stationuuid: props.stationuuid, country: props.country, favicon: props.favicon, tags: props.tags, url_resolved: props.url_resolved, bitrate: props.bitrate, codec: props.codec });
 
           const newStoreArray = storeArray.filter((collection: [string, StationInt]) => collection[0] !== event.currentTarget.id);
 
@@ -116,7 +116,7 @@ export default function StationCard(props: StationCardInt) {
         }
       }
     } else {
-      const storeArray = ([['New collection', [{ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec }]]]);
+      const storeArray = ([['New collection', [{ name: props.name, stationuuid: props.stationuuid, country: props.country, favicon: props.favicon, tags: props.tags, url_resolved: props.url_resolved, bitrate: props.bitrate, codec: props.codec }]]]);
       localStorage.setItem('collections', JSON.stringify(storeArray));
     }
     setCollectionControls(!collectionControls);
@@ -153,9 +153,9 @@ export default function StationCard(props: StationCardInt) {
     return (
       <div className={`station-card ${props.type}-station-card`}>
         <div className='card-content' onClick={handleClick}>
-          <img src={props.logo ? props.logo : stationPlaceholder} alt='Station logo' onError={handleImageError} />
+          <img src={props.favicon ? props.favicon : stationPlaceholder} alt='Station logo' onError={handleImageError} />
           <p>{props.name}</p>
-          <p>{props.location}</p>
+          <p>{props.country}</p>
           <p>{props.tags.replaceAll(',', ', ')}</p>
         </div>
         <div className={`card-controls ${collectionControls && 'collection-controls-shown'}`}>
@@ -188,7 +188,7 @@ export default function StationCard(props: StationCardInt) {
           <img src={cross} alt='Remove station' />
         </button>
         <div className='library-station-card-content' onClick={handleClick}>
-          <img src={props.logo ? props.logo : stationPlaceholder} alt='Station logo' className='library-station-logo' onError={handleImageError} />
+          <img src={props.favicon ? props.favicon : stationPlaceholder} alt='Station logo' className='library-station-logo' onError={handleImageError} />
           <p>{props.name}</p>
         </div>
       </div>

@@ -57,7 +57,7 @@ export default function Collection() {
           </form>
         </div> : <div className='collection-title' onClick={() => setRenaming(true)}><span className='title-text'>{id?.toUpperCase()}</span> (Click title to rename)</div>}
         {stations && stations.map((station) => (
-          <StationCard key={station.stationuuid} stationuuid={station.stationuuid} name={station.name} location={station.country} logo={station.favicon} tags={station.tags} url={station.url_resolved} bitrate={station.bitrate} codec={station.codec} type='collection' removeToggle={() => setRemoveToggle(!removeToggle)} id={id} />
+          <StationCard key={station.stationuuid} stationuuid={station.stationuuid} name={station.name} country={station.country} favicon={station.favicon} tags={station.tags} url_resolved={station.url_resolved} bitrate={station.bitrate} codec={station.codec} type='collection' removeToggle={() => setRemoveToggle(!removeToggle)} id={id} />
         ))}
       </section>
     </main>

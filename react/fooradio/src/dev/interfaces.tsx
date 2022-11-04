@@ -9,15 +9,7 @@ export interface StationInt {
   codec: string,
 }
 
-export interface StationCardInt {
-  logo: string,
-  name: string,
-  stationuuid: string,
-  location: string,
-  tags: string,
-  url: string,
-  bitrate: number,
-  codec: string,
+export interface StationCardInt extends StationInt {
   type: 'explore' | 'library' | 'category' | 'collection',
   removeToggle?: Function,
   id?: string,
