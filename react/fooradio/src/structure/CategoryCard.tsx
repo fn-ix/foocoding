@@ -1,11 +1,6 @@
 import './category-card.css';
 import { Link } from 'react-router-dom';
-
-interface CategoryCardInt {
-  name: string,
-  count: number,
-  category: string,
-}
+import { CategoryCardInt } from '../dev/interfaces';
 
 export default function CategoryCard(props: CategoryCardInt) {
   return (

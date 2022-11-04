@@ -8,38 +8,20 @@ import Collection from './pages/Collection';
 import { Routes, Route } from 'react-router-dom';
 import { useEffect, useState, useRef, createContext } from 'react';
 import Category from './pages/Category';
-
-interface StationInt {
-  name: string,
-  url?: string,
-  icon?: string,
-  bitrate: number,
-  codec: string,
-  stationuuid?: string,
-}
-
-interface ContextInt {
-  playingState: boolean,
-  changePlaying: Function,
-  station: StationInt,
-  changeStation: Function;
-  refresh: boolean,
-  doRefresh?: React.MouseEventHandler,
-  audio: React.RefObject<HTMLAudioElement>,
-}
+import { StationInt, ContextInt } from './dev/interfaces';
 
 export const GlobalContext = createContext({} as ContextInt);
 
 export default function App() {
   const [isPlaying, setPlaying] = useState(false);
   const [refresh, doRefresh] = useState(false);
-  const [station, setStation] = useState<StationInt>({ name: 'No station', bitrate: 0, codec: '' });
+  const [station, setStation] = useState({ name: 'No station', bitrate: 0, codec: '' } as StationInt);
 
   const audio = useRef(new Audio());
 
   useEffect(() => {
-    if (audio && station.url) {
-      audio.current.src = station.url;
+    if (audio && station.url_resolved) {
+      audio.current.src = station.url_resolved;
       audio.current.play();
       station && setPlaying(true);
     }
@@ -47,15 +29,7 @@ export default function App() {
 
   return (
     <div className='App'>
-      <GlobalContext.Provider value={{
-        playingState: isPlaying,
-        changePlaying: (audioState: boolean) => setPlaying(audioState),
-        refresh: refresh,
-        doRefresh: () => doRefresh(!refresh),
-        station: station,
-        changeStation: (stat: StationInt) => setStation(stat),
-        audio: audio
-      }}>
+      <GlobalContext.Provider value={{ isPlaying, setPlaying, refresh, doRefresh, station, setStation, audio }}>
         <ControlBar position='top' />
         <div className='view'>
           <Sidebar />

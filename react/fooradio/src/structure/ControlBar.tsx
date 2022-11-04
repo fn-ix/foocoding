@@ -8,10 +8,7 @@ import stationPlaceholder from '../assets/station.svg';
 import React, { useContext, useState, useRef } from 'react';
 import { GlobalContext } from '../App';
 import { useLocation, useNavigate } from 'react-router-dom';
-
-interface ControlBarInt {
-  position: 'bottom' | 'top',
-}
+import { ControlBarInt } from '../dev/interfaces';
 
 export default function ControlBar(props: ControlBarInt) {
   const path = useLocation().pathname;
@@ -72,7 +69,7 @@ export default function ControlBar(props: ControlBarInt) {
     return (
       <div className='control-bar bar-bottom'>
         <Button type='player' name='play-pause' />
-        <img src={context.station.icon || stationPlaceholder} alt='Station logo' className='playing-logo' />
+        <img src={context.station.favicon || stationPlaceholder} alt='Station logo' className='playing-logo' />
         <div>
           <p>{context.station.name}</p>
           <p>{context.station.codec + ' ' + context.station.bitrate + ' kbps'}</p>

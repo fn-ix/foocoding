@@ -9,31 +9,7 @@ import collection from '../assets/collection.svg';
 import play from '../assets/play.svg';
 import cross from '../assets/cross.svg';
 // import eventual shared button css
-
-interface StationCardInt {
-  logo: string,
-  name: string,
-  stationuuid: string,
-  location: string,
-  tags: string,
-  url: string,
-  bitrate: number,
-  codec: string,
-  type: 'explore' | 'library' | 'category' | 'collection',
-  removeToggle?: Function,
-  id?: string,
-}
-
-interface StationsInt {
-  name: string,
-  country: string,
-  tags: string,
-  favicon: string,
-  stationuuid: string,
-  url_resolved: string,
-  bitrate: number,
-  codec: string,
-}
+import { StationCardInt, StationInt } from '../dev/interfaces';
 
 export default function StationCard(props: StationCardInt) {
   const context = useContext(GlobalContext);
@@ -47,7 +23,7 @@ export default function StationCard(props: StationCardInt) {
   const navigate = useNavigate();
 
   function handleClick() {
-    context.changeStation({ name: props.name, url: props.url, icon: props.logo, bitrate: props.bitrate, codec: props.codec, stationuuid: props.stationuuid });
+    context.setStation({ name: props.name, url_resolved: props.url, favicon: props.logo, bitrate: props.bitrate, codec: props.codec, stationuuid: props.stationuuid });
   }
 
   function handleImageError(event: React.SyntheticEvent<HTMLImageElement>) {
@@ -63,10 +39,10 @@ export default function StationCard(props: StationCardInt) {
     if (storeString) {
       const storeArray = JSON.parse(storeString);
 
-      const overlap = storeArray.filter((station: StationsInt) => station.stationuuid === props.stationuuid);
+      const overlap = storeArray.filter((station: StationInt) => station.stationuuid === props.stationuuid);
 
       if (overlap.length >= 1) {
-        localStorage.setItem('favorites', JSON.stringify(storeArray.filter((station: StationsInt) => station.stationuuid !== props.stationuuid)));
+        localStorage.setItem('favorites', JSON.stringify(storeArray.filter((station: StationInt) => station.stationuuid !== props.stationuuid)));
         setFavorite(false);
       } else {
         storeArray.push({ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec });
@@ -85,7 +61,7 @@ export default function StationCard(props: StationCardInt) {
       const storeString = localStorage.getItem('favorites');
       if (storeString) {
         const storeArray = JSON.parse(storeString);
-        localStorage.setItem('favorites', JSON.stringify(storeArray.filter((station: StationsInt) => station.stationuuid !== props.stationuuid)));
+        localStorage.setItem('favorites', JSON.stringify(storeArray.filter((station: StationInt) => station.stationuuid !== props.stationuuid)));
         props.removeToggle && props.removeToggle();
       }
     } else {
@@ -93,15 +69,15 @@ export default function StationCard(props: StationCardInt) {
       if (storeString) {
         const storeArray = JSON.parse(storeString);
 
-        const collectionArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] === props.id);
+        const collectionArray = storeArray.filter((collection: [string, StationInt]) => collection[0] === props.id);
 
-        const collectionsArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] !== props.id);
+        const collectionsArray = storeArray.filter((collection: [string, StationInt]) => collection[0] !== props.id);
 
         if (collectionArray[0][1].length === 1) {
           localStorage.setItem('collections', JSON.stringify(collectionsArray));
           navigate('/library');
         } else {
-          const newCollectionArray = collectionArray[0][1].filter((station: StationsInt) => station.name !== props.name);
+          const newCollectionArray = collectionArray[0][1].filter((station: StationInt) => station.name !== props.name);
 
           collectionsArray.unshift([props.id, newCollectionArray]);
 
@@ -119,7 +95,7 @@ export default function StationCard(props: StationCardInt) {
       const storeArray = JSON.parse(storeString);
 
       if (event.currentTarget.className === 'create-collection') {
-        const newCollections = storeArray.filter((collection: [string, StationsInt]) => collection[0].includes('New collection'));
+        const newCollections = storeArray.filter((collection: [string, StationInt]) => collection[0].includes('New collection'));
 
         let collectionName;
         (newCollections.length > 0) ? collectionName = `New collection #${newCollections.length + 1}` : collectionName = 'New collection';
@@ -127,12 +103,12 @@ export default function StationCard(props: StationCardInt) {
         storeArray.unshift([collectionName, [{ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec }]]);
         localStorage.setItem('collections', JSON.stringify(storeArray));
       } else {
-        const collectionArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] === event.currentTarget.id);
+        const collectionArray = storeArray.filter((collection: [string, StationInt]) => collection[0] === event.currentTarget.id);
 
-        if (collectionArray[0][1].filter((station: StationsInt) => station.stationuuid === props.stationuuid).length < 1) {
+        if (collectionArray[0][1].filter((station: StationInt) => station.stationuuid === props.stationuuid).length < 1) {
           collectionArray[0][1].push({ name: props.name, stationuuid: props.stationuuid, country: props.location, favicon: props.logo, tags: props.tags, url_resolved: props.url, bitrate: props.bitrate, codec: props.codec });
 
-          const newStoreArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] !== event.currentTarget.id);
+          const newStoreArray = storeArray.filter((collection: [string, StationInt]) => collection[0] !== event.currentTarget.id);
 
           newStoreArray.unshift(collectionArray[0]);
 
@@ -151,7 +127,7 @@ export default function StationCard(props: StationCardInt) {
     if (storeString) {
       const storeArray = JSON.parse(storeString);
 
-      const overlap = storeArray.filter((station: StationsInt) => station.stationuuid === props.stationuuid);
+      const overlap = storeArray.filter((station: StationInt) => station.stationuuid === props.stationuuid);
 
       if (overlap.length >= 1) setFavorite(true);
     }
@@ -161,17 +137,17 @@ export default function StationCard(props: StationCardInt) {
     const storeString = localStorage.getItem('collections');
     if (storeString) {
       const storeArray = JSON.parse(storeString);
-      setCollections(storeArray.map((collection: [string, StationsInt]) => collection[0]));
+      setCollections(storeArray.map((collection: [string, StationInt]) => collection[0]));
     }
   }, [collectionControls]);
 
   useEffect(() => {
-    if (context.station.stationuuid === props.stationuuid && context.playingState) {
+    if (context.station.stationuuid === props.stationuuid && context.isPlaying) {
       setIsPlaying(true);
     } else {
       setIsPlaying(false);
     }
-  }, [context.playingState, props.stationuuid, context.station.stationuuid]);
+  }, [context.isPlaying, props.stationuuid, context.station.stationuuid]);
 
   if (props.type === 'explore' || props.type === 'category') {
     return (

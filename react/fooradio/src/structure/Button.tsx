@@ -24,10 +24,10 @@ export default function Button(props: ButtonInt) {
     if (audio && audio.src) {
       if (audio.paused || audio.ended) {
         audio.play();
-        context.changePlaying(true);
+        context.setPlaying(true);
       } else {
         audio.pause();
-        context.changePlaying(false);
+        context.setPlaying(false);
       }
     }
   }
@@ -53,7 +53,7 @@ export default function Button(props: ButtonInt) {
       if (props.name === 'reload') {
         return (
           <div className={`${props.type}-link`}>
-            <button className={`${props.type}-button `} name={props.name} onClick={context.doRefresh}>
+            <button className={`${props.type}-button `} name={props.name} onClick={() => context.doRefresh(!context.refresh)}>
               <img src={reloadVector} alt={props.name} />
             </button>
           </div>
@@ -70,7 +70,7 @@ export default function Button(props: ButtonInt) {
     case 'player':
       return (
         <button className={`${props.type}-button`} name={props.name} onClick={handlePlay}>
-          <img src={(context.playingState) ? pauseVector : playVector} alt={(context.playingState) ? 'Playing' : 'Paused'} />
+          <img src={(context.isPlaying) ? pauseVector : playVector} alt={(context.isPlaying) ? 'Playing' : 'Paused'} />
         </button>
       );
     case 'search':

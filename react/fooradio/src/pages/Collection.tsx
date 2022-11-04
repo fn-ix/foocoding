@@ -3,23 +3,13 @@ import { useState, useEffect } from 'react';
 import './category-collection-search.css';
 import StationCard from '../structure/StationCard';
 import cross from '../assets/cross.svg';
-
-interface StationsInt {
-  name: string,
-  country: string,
-  tags: string,
-  favicon: string,
-  stationuuid: string,
-  url_resolved: string,
-  bitrate: number,
-  codec: string,
-}
+import { StationInt } from '../dev/interfaces';
 
 export default function Collection() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [stations, setStations] = useState<Array<StationsInt>>();
+  const [stations, setStations] = useState<Array<StationInt>>();
   const [removeToggle, setRemoveToggle] = useState(false);
   const [renaming, setRenaming] = useState(false);
 
@@ -30,9 +20,9 @@ export default function Collection() {
     if (storeString) {
       const storeArray = JSON.parse(storeString);
 
-      const collectionArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] === id);
+      const collectionArray = storeArray.filter((collection: [string, StationInt]) => collection[0] === id);
 
-      const collectionsArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] !== id);
+      const collectionsArray = storeArray.filter((collection: [string, StationInt]) => collection[0] !== id);
 
       collectionArray[0][0] = (event.currentTarget[0] as HTMLInputElement).value;
       collectionsArray.unshift(collectionArray[0]);
@@ -50,7 +40,7 @@ export default function Collection() {
     if (storeString) {
       const storeArray = JSON.parse(storeString);
 
-      const collectionArray = storeArray.filter((collection: [string, StationsInt]) => collection[0] === id);
+      const collectionArray = storeArray.filter((collection: [string, StationInt]) => collection[0] === id);
 
       setStations(collectionArray[0][1]);
     }

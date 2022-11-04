@@ -3,12 +3,9 @@ import StationCard from '../structure/StationCard';
 import loader from '../assets/loading.svg';
 import useRadioBrowser from '../dev/useRadioBrowser';
 import { useEffect, useRef } from 'react';
+import { ExploreInt } from '../dev/interfaces';
 
-interface SectionInt {
-  type: 'most-popular' | 'recently-played';
-}
-
-function Section(props: SectionInt) {
+function Section(props: ExploreInt) {
   const title = props.type.toUpperCase().replace('-', ' ');
 
   const { stations, setAmount, loading, error } = useRadioBrowser(props.type, 14);

@@ -2,26 +2,12 @@ import './library.css';
 import { useState, useEffect } from 'react';
 import StationCard from '../structure/StationCard';
 import CollectionCard from '../structure/CollectionCard';
+import { LibraryInt, StationInt } from '../dev/interfaces';
 
-interface SectionInt {
-  type: 'favorites' | 'collections',
-}
-
-interface StationsInt {
-  name: string,
-  country: string,
-  tags: string,
-  favicon: string,
-  stationuuid: string,
-  url_resolved: string,
-  bitrate: number,
-  codec: string,
-}
-
-function Section(props: SectionInt) {
+function Section(props: LibraryInt) {
   const title = props.type.toUpperCase();
 
-  const [favorites, setFavorites] = useState<Array<StationsInt>>();
+  const [favorites, setFavorites] = useState<Array<StationInt>>();
   const [removeToggle, setRemoveToggle] = useState(false);
   const [collectionNames, setCollectionNames] = useState<Array<string>>();
 
@@ -40,7 +26,7 @@ function Section(props: SectionInt) {
 
     if (storeString) {
       const storeArr = JSON.parse(storeString);
-      const storeNames = storeArr.map((collection: [string, StationsInt]) => collection[0]);
+      const storeNames = storeArr.map((collection: [string, StationInt]) => collection[0]);
       setCollectionNames(storeNames);
     }
   }, []);

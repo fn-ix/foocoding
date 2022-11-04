@@ -5,10 +5,7 @@ import StationCard from '../structure/StationCard';
 import useRadioBrowser from '../dev/useRadioBrowser';
 import loader from '../assets/loading.svg';
 import { useRef, useEffect } from 'react';
-
-interface CategoryInt {
-  type: 'countries' | 'languages' | 'tags' | 'countries-stations' | 'languages-stations' | 'tags-stations';
-}
+import { CategoryInt } from '../dev/interfaces';
 
 export default function Category(props: CategoryInt) {
   const title = props.type.toUpperCase();
