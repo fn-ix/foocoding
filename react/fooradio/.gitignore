@@ -25,3 +25,4 @@ yarn-error.log*
 # user-defined
 /starfield
 /unminified_svgs
+/unused_scripts
