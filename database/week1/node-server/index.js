@@ -21,7 +21,7 @@ db.connect((err) => {
 // Create express server
 const app = express();
 
-// Create DB
+// Create queries
 app.get('/:id', (req, res) => {
   let sql;
   switch (req.params.id) {
@@ -57,12 +57,12 @@ app.get('/:id', (req, res) => {
       break;
     default:
       res.send('No such question');
+      return;
   }
   db.query(sql, (err, result) => {
     if (err) {
       throw err;
     }
-
     res.send(result);
   });
 });
