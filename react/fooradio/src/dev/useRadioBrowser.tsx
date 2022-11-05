@@ -27,7 +27,7 @@ export default function useRadioBrowser(type: string, initialAmount: number, id?
       const headers = new Headers({
         "Accept": "application/json",
         "Content-Type": "application/json",
-        "User-Agent": "FooRadio (fooradio.onrender.com)/1.0"
+        "User-Agent": "FooRadio (fn-ix.github.io/foocoding/react/fooradio)/1.0"
       });
 
       try {
