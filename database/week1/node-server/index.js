@@ -48,7 +48,7 @@ app.get('/:id', (req, res) => {
       sql = 'select Name from country order by SurfaceArea desc limit 10';
       break;
     case '9':
-      sql = 'select city.Name, country.Name from city inner join country on city.CountryCode = country.Code order by city.Population desc limit 10';
+      sql = 'select city.Name as "City Name", country.Name as "Country Name" from city inner join country on city.CountryCode = country.Code order by city.Population desc limit 10';
       break;
     case '10':
       sql = 'select sum(Population) as WorldPopulation from country';
