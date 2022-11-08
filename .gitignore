@@ -1,5 +1,4 @@
 *.directory
-/README.md.backup
 node_modules
 .eslintrc
 /package.json
