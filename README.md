@@ -26,6 +26,7 @@
 - Final project: [FooRadio](https://fooradio.onrender.com/)
 
 ### Database
-- Week 1: MySQL [dump](https://github.com/fn-ix/foocoding/blob/main/database/week1/dump.sql) and [queries](https://github.com/fn-ix/foocoding/blob/main/database/week1/queries.md)
+- Week 1: MySQL [dump](https://github.com/fn-ix/foocoding/blob/main/database/week1/dump.sql) & [queries](https://github.com/fn-ix/foocoding/blob/main/database/week1/queries.md) plus [Node.js server](https://github.com/fn-ix/foocoding/blob/main/database/week1/node-server/index.js)
+- Week 2: [Prepared statements](https://github.com/fn-ix/foocoding/blob/main/database/week2/prepared_statements.md)
 
 ⏻
