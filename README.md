@@ -22,7 +22,7 @@
 - Week 2: [To-do CLI app](https://github.com/fn-ix/foocoding/blob/main/node/week2/src/)
 - Week 3: [To-do API](https://github.com/fn-ix/foocoding/blob/main/node/week3/src/)
 
-### React.js
+### React
 - Final project: [FooRadio](https://fooradio.onrender.com/)
 
 ### Database
