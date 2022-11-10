@@ -6,7 +6,7 @@ prepare statement1 from "select country.Name as 'Country', city.Name as 'Capital
 ```
 2. List all the languages spoken in the region Y.
 ```
-prepare statement2 from "select l.Language as 'Languages' from country c inner join countrylanguage l on c.Code = l.CountryCode where c.Region = ? group by l.Language";
+prepare statement2 from "select distinct l.Language as 'Languages' from country c inner join countrylanguage l on c.Code = l.CountryCode where c.Region = ?";
 ```
 3. Find the number of cities in which language Z is spoken.
 ```
