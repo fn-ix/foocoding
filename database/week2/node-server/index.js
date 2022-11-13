@@ -53,4 +53,9 @@ db.prepare("select c.Continent, count(distinct l.Language) as 'Languages' from c
 });
 
 // Run server
-app.listen('3000');
+const server = app.listen('3000');
+
+process.on('SIGTERM', () => {
+  server.close();
+  db.end();
+});
