@@ -10,7 +10,7 @@ prepare statement2 from "select distinct l.Language as 'Languages' from country 
 ```
 3. Find the number of cities in which language Z is spoken.
 ```
-prepare statement3 from "select l.Language, count(distinct c.Name) as 'Cities' from city c inner join countrylanguage l on c.CountryCode = l.CountryCode where l.Language = ?";
+prepare statement3 from "select l.Language, count(c.Name) as 'Cities' from city c inner join countrylanguage l on c.CountryCode = l.CountryCode where l.Language = ?";
 ```
 4. List all the continents with the number of languages spoken in each continent.
 ```
