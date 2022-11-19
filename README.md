@@ -28,6 +28,6 @@
 ### Database
 - Week 1: MySQL [dump](https://github.com/fn-ix/foocoding/blob/main/database/week1/dump.sql) & [queries](https://github.com/fn-ix/foocoding/blob/main/database/week1/queries.md) plus [Node.js server](https://github.com/fn-ix/foocoding/blob/main/database/week1/node-server/index.js)
 - Week 2: [Prepared statements](https://github.com/fn-ix/foocoding/blob/main/database/week2/prepared_statements.md), [Node.js server](https://github.com/fn-ix/foocoding/blob/main/database/week2/node-server/index.js) and todo-app database [entity relationship diagram](https://github.com/fn-ix/foocoding/blob/main/database/week2/erd.png)
-- Week 3: Updated todo-app [entity relationship diagram](https://github.com/fn-ix/foocoding/blob/main/database/week3/erd.png) plus the [database schema](https://github.com/fn-ix/foocoding/blob/main/database/week3/todo.sql) and a [Node API server](https://github.com/fn-ix/foocoding/blob/main/database/week3/node-server/index.js)
+- Week 3: Updated todo-app [entity relationship diagram](https://github.com/fn-ix/foocoding/blob/main/database/week3/erd.png) plus the [database schema](https://github.com/fn-ix/foocoding/blob/main/database/week3/todo.sql) and a [Node API server](https://github.com/fn-ix/foocoding/blob/main/database/week3/node-server) with a simple [EJS](https://github.com/mde/ejs) frontend for exploring the database
 
 ⏻

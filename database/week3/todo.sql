@@ -30,7 +30,7 @@ CREATE TABLE `Item` (
   PRIMARY KEY (`id`),
   KEY `list_id` (`list_id`),
   CONSTRAINT `Item_ibfk_1` FOREIGN KEY (`list_id`) REFERENCES `List` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,9 @@ CREATE TABLE `Item` (
 
 LOCK TABLES `Item` WRITE;
 /*!40000 ALTER TABLE `Item` DISABLE KEYS */;
+INSERT INTO `Item` VALUES
+(4,11,'Celery',0),
+(5,11,'Carrots',0);
 /*!40000 ALTER TABLE `Item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +61,7 @@ CREATE TABLE `List` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `List_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +70,9 @@ CREATE TABLE `List` (
 
 LOCK TABLES `List` WRITE;
 /*!40000 ALTER TABLE `List` DISABLE KEYS */;
+INSERT INTO `List` VALUES
+(11,3,'Groceries',NULL,0),
+(12,3,'Homework','2022-11-19 23:59:59',1);
 /*!40000 ALTER TABLE `List` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,7 +141,7 @@ CREATE TABLE `User` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,7 +151,8 @@ CREATE TABLE `User` (
 LOCK TABLES `User` WRITE;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
 INSERT INTO `User` VALUES
-(3,'John','password','johnny@gmail.com');
+(3,'John','password','johnny@gmail.com'),
+(4,'Jane','another_password','doe@gmail.com');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -158,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-19 18:18:26
+-- Dump completed on 2022-11-19 22:21:00

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>DBExplorer</title>
+</head>
+
+<body>
+  <main>
+    <h2>Todo database explorer</h2>
+    <p>To view the todo lists of an individual user, select them below:</p>
+    <ul>
+      <% users.forEach(function(user){ %>
+        <li>
+          <a href=<%='/user/' + user.id %>><%= user.name %> (id: <%= user.id %>)</a>
+        </li>
+        <% }); %>
+    </ul>
+  </main>
+</body>
+
+</html>

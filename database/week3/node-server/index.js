@@ -16,10 +16,40 @@ db.connect((err) => {
   }
 });
 
-// Create express server
+// Create & configure express server
 const app = express();
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
-// Execute SQL statements
+// Serve views
+app.get('/', (req, res) => {
+  db.query('select id, name from User', (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.render('index', { users: result });
+  });
+});
+
+app.get('/user/:id', (req, res) => {
+  db.execute('select id, name, due, done from List where user_id=?', [req.params.id], (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.render('user', { lists: result });
+  });
+});
+
+app.get('/list/:id', (req, res) => {
+  db.execute('select id, text, done from Item where list_id=?', [req.params.id], (err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.render('list', { items: result });
+  });
+});
+
+// API statements
 // Create todo list
 app.post('/create', (req, res) => {
   const values = [req.query.id, req.query.name, req.query.due].map((val) => {
@@ -70,6 +100,11 @@ app.put('/due', (req, res) => {
     if (error) res.send(error);
     res.send(result);
   });
+});
+
+// Redirect incorrect URLs
+app.get('*', (req, res) => {
+  res.redirect('/');
 });
 
 // Run server
