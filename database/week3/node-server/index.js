@@ -21,7 +21,7 @@ const app = express();
 
 // Execute SQL statements
 // Create todo list
-app.get('/create', (req, res) => {
+app.post('/create', (req, res) => {
   const values = [req.query.id, req.query.name, req.query.due].map((val) => {
     if (val) return val;
     return null;
@@ -33,7 +33,7 @@ app.get('/create', (req, res) => {
 });
 
 // Delete todo list
-app.get('/delete', (req, res) => {
+app.delete('/delete', (req, res) => {
   db.execute('delete from List where id=?', [req.query.id], (error, result) => {
     if (error) res.send(error);
     res.send(result);
@@ -41,7 +41,7 @@ app.get('/delete', (req, res) => {
 });
 
 // Insert item into todo list
-app.get('/insert', (req, res) => {
+app.post('/insert', (req, res) => {
   db.execute('insert into Item (list_id, text) values (?, ?)', [req.query.list_id, req.query.text], (error, result) => {
     if (error) res.send(error);
     res.send(result);
@@ -49,7 +49,7 @@ app.get('/insert', (req, res) => {
 });
 
 // Remove item from todo list
-app.get('/remove', (req, res) => {
+app.delete('/remove', (req, res) => {
   db.execute('delete from Item where id=?', [req.query.id], (error, result) => {
     if (error) res.send(error);
     res.send(result);
@@ -57,7 +57,7 @@ app.get('/remove', (req, res) => {
 });
 
 // Mark item as done
-app.get('/done', (req, res) => {
+app.put('/done', (req, res) => {
   db.execute('update Item set done=1 where id=?', [req.query.id], (error, result) => {
     if (error) res.send(error);
     res.send(result);
@@ -65,7 +65,7 @@ app.get('/done', (req, res) => {
 });
 
 // Add due date
-app.get('/due', (req, res) => {
+app.put('/due', (req, res) => {
   db.execute('update List set due=? where id=?', [req.query.due, req.query.id], (error, result) => {
     if (error) res.send(error);
     res.send(result);
